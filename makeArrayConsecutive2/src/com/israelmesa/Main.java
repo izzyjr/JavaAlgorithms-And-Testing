@@ -4,7 +4,7 @@ public class Main {
 
     public static void main(String[] args) {
 
-        int[] statues = {6, 3, 2, 8};
+        int[] statues = {4, 2, 7, 18};
         makeArrayConsecutive2(statues);
 
     }
@@ -23,14 +23,18 @@ public class Main {
                 smallestNum = statues[i];
             }
         }
+
+        System.out.println("Smallest statue size: " + smallestNum);
+        System.out.println("Largest statue size: " + largestNum);
         int countUp = smallestNum;
         int there = 0;
-        for (int j = 0; j < statues.length; j++) {
+        for (int j = 0; j < largestNum; j++) {
             countUp++;
             for (int k = 0; k < statues.length; k++) {
                 if (countUp < largestNum) {
                     if (countUp == statues[k]) {
                         there++;
+                        System.out.println("Statue included: " + countUp);
                     }
                 }
             }
