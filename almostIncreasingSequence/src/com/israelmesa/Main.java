@@ -3,15 +3,15 @@ package com.israelmesa;
 public class Main {
 
     public static void main(String[] args) {
-//        int[] numArray = {1, 2, 18, 3, 4};
-//        System.out.println(almostIncreasingSequence(numArray));
+        int[] numArray = {1, 2, 3, 1}; //true
+        System.out.println(almostIncreasingSequence(numArray));
 
-//        int[] numArrayTwo = {40, 50, 60, 10, 20, 30};
+//        int[] numArrayTwo = {3, 5, 67, 98, 3}; //true
 //        System.out.println(almostIncreasingSequence(numArrayTwo));
 //
-        int[] numArrayThree = {1, 2, 5, 3, 5};
-        System.out.println(almostIncreasingSequence(numArrayThree));
-//
+//        int[] numArrayThree = {0, -2, 5, 6}; //true
+//        System.out.println(almostIncreasingSequence(numArrayThree));
+
 //        int[] numArrayFour = {10, 1, 2, 3, 4, 5, 6, 1};
 //        System.out.println(almostIncreasingSequence(numArrayFour));
 
@@ -23,32 +23,49 @@ public class Main {
         int skip;
         int increase = 0;
         int pass = 0;
-        for (int i = 0; i < length; i++) {
-            skip = sequence[i];
-            for (int j = 0; j < length; j++) {
-                if (skip == sequence[j]) {
-                    System.out.println("skip");
-                } else {
-                    if (sequence[j + 1] == skip) {
+        int fail = 0;
+        for (int i = 0; i <= length - 1; i++) {
+            skip = i;
+            for (int j = 0; j <= length - 1; j++) {
+                if (j != skip) {
+                    if (j + 1 == skip) {
                         if (j <= length - 1){
                             if (sequence[j] < sequence[j + 2]) {
                                 increase++;
+                                System.out.println("j:" + sequence[j] + " < j + 2: " + sequence[j + 2] + " Increase: " + increase);
+                            } else {
+                                System.out.println("Dip");
                             }
                         }
                     } else {
                         if (sequence[j] < sequence[j + 1]) {
                             increase++;
+                            System.out.println("j:" + sequence[j] + " < j + 1: " + sequence[j + 1] + " Increase: " + increase);
+                        } else {
+                            System.out.println("Dip");
                         }
                     }
+                } else {
+                    System.out.println("skip: " + sequence[j]);
                 }
-                if (increase == length - 1) {
-                    pass++;
+                if (j == length - 1){
+                    if (increase == length - 1) {
+                        System.out.println("Increase: " + increase + " Length: " + (length - 1));
+                        pass++;
+                        increase = 0;
+                        System.out.println("Pass: " + pass);
+                    } else {
+                        System.out.println("Did not pass");
+                        increase = 0;
+                    }
                 }
             }
         }
-        if (pass == length) {
+        if (pass == 1) {
+            System.out.println("Pass: " + pass + " == " + length);
             return true;
         } else {
+            System.out.println("Pass: " + pass + " == " + length);
             return false;
         }
     }
@@ -86,6 +103,44 @@ public class Main {
 //            }
 //        }
 //        if (increase == increment || decrease <= 1) {
+//            return true;
+//        } else {
+//            return false;
+//        }
+//    }
+
+//    private static boolean almostIncreasingSequence(int[] sequence) {
+//        int length = sequence.length - 1;
+//        int skip;
+//        int increase = 0;
+//        int pass = 0;
+//        for (int i = 0; i <= length - 1; i++) {
+//            skip = i;
+//            for (int j = 0; j <= length - 1; j++) {
+//                if (j != skip) {
+//                    if (j + 1 == skip) {
+//                        if (j <= length - 1){
+//                            if (sequence[j] < sequence[j + 2]) {
+//                                increase++;
+//                            }
+//                        }
+//                    } else {
+//                        if (sequence[j] < sequence[j + 1]) {
+//                            increase++;
+//                        }
+//                    }
+//                }
+//                if (j == length - 1){
+//                    if (increase == length - 1) {
+//                        pass++;
+//                        increase = 0;
+//                    } else {
+//                        increase = 0;
+//                    }
+//                }
+//            }
+//        }
+//        if (pass == 1) {
 //            return true;
 //        } else {
 //            return false;
