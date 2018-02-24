@@ -3,11 +3,12 @@ package com.israelmesa;
 public class Main {
 
     public static void main(String[] args) {
-        int one = 7;
-        System.out.println(fibonacciNumber(one));
+//        int one = 7;
+//        System.out.println(fibonacciNumber(one));
 
-//        int two = 7;
-//        fibonacciNumber(two);
+        int two = 5;
+        System.out.println(fibonacciNumber(two));
+
     }
 
     public static int fibonacciNumber(int n) {
