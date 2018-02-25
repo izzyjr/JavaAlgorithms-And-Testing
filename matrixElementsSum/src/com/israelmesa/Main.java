@@ -4,18 +4,38 @@ public class Main {
 
     public static void main(String[] args) {
 
-        int[][] matrix = {{0,1,1,2},
-                          {0,5,0,0},
-                          {2,0,3,3}};
-        matrixElementsSum(matrix);
+        int[][] matrix = {{1,1,1,0,1},
+                          {0,0,0,0,2},
+                          {2,1,3,10,0},
+                          {2,1,3,10,2},
+                          {2,1,3,10,2}};
+
+        System.out.println(matrixElementsSum(matrix));
 
     }
 
-    public static void matrixElementsSum(int[][] matrix) {
-        for(int i = 0; i < matrix.length; i++) {
-            for(int j = 0; j < matrix.length; j++) {
-                System.out.println(matrix[i][j]);
+    public static int matrixElementsSum(int[][] matrix) {
+        int count = 0;
+
+        for (int row = 0; row < matrix.length; row++) {
+            for (int column = 0; column < matrix[row].length; column++) {
+                if (row != matrix.length - 1) {
+                    if (matrix[row][column] == 0) {
+                        for (int i = row + 1; i <= matrix[row].length - 1; i++) {
+                            matrix[i][column] = 0;
+                        }
+                    }
+                }
+//                count += matrix[row][column];
             }
         }
+        for (int row = 0; row < matrix.length; row++) {
+            for (int column = 0; column < matrix[row].length; column++) {
+                count += matrix[row][column];
+                System.out.print(matrix[row][column] + "\t");
+            }
+            System.out.println("\n");
+        }
+        return count;
     }
 }
