@@ -14,6 +14,7 @@ public class Main {
 
         int max = 0;
         int count = 0;
+        int countUp = 0;
         String[] allLongestStrings;
 
         for (int i = 0; i < inputArray.length; i++) {
@@ -36,22 +37,27 @@ public class Main {
 
         }
 
+        System.out.println("Max: " + max);
+        System.out.println("Count: " + count);
         allLongestStrings = new String[count];
 
         for (int k = 0; k < inputArray.length; k++) {
 
             if (inputArray[k].length() ==  max) {
 
-                allLongestStrings[k] = inputArray[k];
+                if (countUp < count) {
+
+                    allLongestStrings[countUp] = inputArray[k];
+                    System.out.println((countUp + 1) + ": " + inputArray[k]);
+                    countUp++;
+
+                }
 
             }
 
         }
 
-        System.out.println("Max: " + max);
-        System.out.println("Count: " + count);
-
-
         return allLongestStrings;
     }
+
 }
