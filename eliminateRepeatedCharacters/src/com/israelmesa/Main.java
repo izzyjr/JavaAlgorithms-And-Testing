@@ -1,41 +1,32 @@
 package com.israelmesa;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 public class Main {
 
     public static void main(String[] args) {
-	    String string = "characters";
-        String btring = "characters";
+	    String string = "eeeee";
+
 	    eliminateRepeatedCharacters(string);
     }
 
     private static String eliminateRepeatedCharacters(String string) {
 
-        ArrayList<String> list = new ArrayList<String>();
-
-        String[] array = string.split("");
-
         int count = 0;
-        int increase = 0;
+        List<String> myList = new ArrayList<String>(Arrays.asList(string.split("")));
+        List<String> myListTwo = myList;
 
-        for (int i = 0; i < array.length; i++) {
+        for (int i = 0; i < myList.size(); i++) {
 
-            list.add(array[i]);
+            for (int j = 0; j < myList.size(); j++) {
 
-        }
+                if(i != j) {
 
-        for (int j = 0; j < list.size(); j++) {
+                    if (myList.get(i).equals(myListTwo.get(j))) {
 
-            for (int m = 0; m < list.size(); m++) {
-
-                if (list.get(j).equals(array[m])) {
-
-                    increase++;
-                    if (increase > 1) {
-
-                        list.remove(j);
-                        count++;
+                            myList.remove(j);
 
                     }
 
@@ -43,23 +34,13 @@ public class Main {
 
             }
 
-            increase = 0;
-
         }
 
-        String arrayTwo[] = new String[array.length];
+        for (int k = 0; k < myList.size(); k++) {
 
-        for(int k = 0; k < list.size(); k++) {
-
-            System.out.println(list.get(k));
+            System.out.println(myList.get(k));
 
         }
-
-//        String wow = arrayTwo.toString();
-//
-//        System.out.println(wow);
-//
-//        return wow;
 
         return string;
 
