@@ -8,19 +8,18 @@ public class Main {
 
     public static void main(String[] args) {
 
-        //Will only work if a character is repeated less than 5 times - in progress
+        //Method works - Codefights inspired self challenge
 
-	    String stringOne = "charactersaaa";
-	    String stringTwo = "charactersa";
+	    String stringOne = "aabbccddeeffgghhiijjkkllmmnnooppqqrrssttuuvvwwxxyyzz";
+	    String stringTwo = "characters";
+	    String stringThree = "aaaaaaaaaaaaaaaa";
 
-	    eliminateRepeatedCharacters(stringTwo);
+	    eliminateRepeatedCharacters(stringOne);
     }
 
     private static String eliminateRepeatedCharacters(String string) {
 
-        int count = 0;
         List<String> myList = new ArrayList<String>(Arrays.asList(string.split("")));
-        List<String> myListTwo = myList;
 
         for (int i = 0; i < myList.size(); i++) {
 
@@ -30,7 +29,8 @@ public class Main {
 
                     if (myList.get(i).equals(myList.get(j))) {
 
-                        myListTwo.remove(j);
+                        myList.remove(j);
+                        j = 0;
 
                     }
                 }
@@ -39,9 +39,9 @@ public class Main {
 
         }
 
-        for (int k = 0; k < myListTwo.size(); k++) {
+        for (int k = 0; k < myList.size(); k++) {
 
-            System.out.println(myListTwo.get(k));
+            System.out.println(myList.get(k));
 
         }
 
