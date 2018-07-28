@@ -10,12 +10,16 @@ public class Main {
 
 //        String one = "zzzz";
 //        String two = "zzzzzzz";
+        //expecter output: 4
 
-//        String one = "aabcc";
-//        String two = "adcaa";
+//        String one = "abaca";
+//        String two = "abaac";
+        //expected output: 5
 
-        String one = "abca";
-        String two = "xyzbac";
+        String one = "abcdefghxyzttw";
+        String two = "hgfedcbaabcwwt";
+        //expected output: 10
+
         commonCharacterCount(one, two);
 
 
@@ -37,7 +41,7 @@ public class Main {
                     i = 0;
 
                     stringListTwo.remove(j);
-                    j = 0;
+                    j = -1;
 
                     count++;
 
@@ -76,7 +80,7 @@ public class Main {
 //                    stringListOne.remove(i);
 //                    i = 0;
 //                    stringListTwo.remove(j);
-//                    j = 0;
+//                    j = -1;
 //                    count++;
 //
 //                    if (stringListOne.size() == 0 || stringListTwo.size() == 0) {
