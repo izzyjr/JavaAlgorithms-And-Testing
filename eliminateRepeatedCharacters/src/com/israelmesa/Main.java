@@ -7,9 +7,13 @@ import java.util.List;
 public class Main {
 
     public static void main(String[] args) {
-	    String string = "eeeee";
 
-	    eliminateRepeatedCharacters(string);
+        //Will only work if a character is repeated less than 5 times - in progress
+
+	    String stringOne = "charactersaaa";
+	    String stringTwo = "charactersa";
+
+	    eliminateRepeatedCharacters(stringTwo);
     }
 
     private static String eliminateRepeatedCharacters(String string) {
@@ -24,21 +28,20 @@ public class Main {
 
                 if(i != j) {
 
-                    if (myList.get(i).equals(myListTwo.get(j))) {
+                    if (myList.get(i).equals(myList.get(j))) {
 
-                            myList.remove(j);
+                        myListTwo.remove(j);
 
                     }
-
                 }
 
             }
 
         }
 
-        for (int k = 0; k < myList.size(); k++) {
+        for (int k = 0; k < myListTwo.size(); k++) {
 
-            System.out.println(myList.get(k));
+            System.out.println(myListTwo.get(k));
 
         }
 
