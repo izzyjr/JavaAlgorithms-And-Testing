@@ -47,6 +47,7 @@ public class Main {
 
     }
 
+
 //    private static boolean isLucky(int n) {
 //
 //        int teamA = 0;
