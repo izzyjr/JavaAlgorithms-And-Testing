@@ -27,20 +27,15 @@ public class Main {
 
             for (int j = 0; j < a.length; j++) {
 
-                if (i != j) {
+                if (j < (a.length - 1)) {
 
-                    if (j < (a.length - 1)) {
+                    if (a[j] > a[j + 1]) {
 
-                        if (a[j] > a[j + 1]) {
-
-                            temp = a[j + 1];
-                            a[j + 1] = a[j];
-                            a[j] = temp;
-
-                        }
+                        temp = a[j + 1];
+                        a[j + 1] = a[j];
+                        a[j] = temp;
 
                     }
-
                 }
 
             }
