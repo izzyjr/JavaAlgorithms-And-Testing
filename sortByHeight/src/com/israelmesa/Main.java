@@ -19,6 +19,67 @@ public class Main {
 
     private static int[] sortByHeight(int[] a) {
 
+        int count = 0;
+        int max = 0;
+        int temp;
+
+        for (int i = 0; i < a.length; i++) {
+
+            for (int j = 0; j < a.length; j++) {
+
+                if (i != j) {
+
+                    if (j < (a.length - 1)) {
+
+                        if (a[j] > a[j + 1]) {
+
+                            temp = a[j + 1];
+                            a[j + 1] = a[j];
+                            a[j] = temp;
+
+                        }
+
+                    }
+
+                }
+
+            }
+
+        }
+
+
+        for (int j = 0; j < a.length; j++) {
+
+            System.out.println(a[j]);
+
+        }
+
         return a;
+
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
