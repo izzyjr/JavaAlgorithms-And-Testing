@@ -4,8 +4,8 @@ public class Main {
 
     public static void main(String[] args) {
 
-        int[] testOne = {-1, 150, 190, 170, -1, -1, 160, 180};
-        //Output: [-1, 150, 160, 170, -1, -1, 180, 190]
+        int[] testOne = {-1, 150, 190, 170, -1, -1, 160, -1};
+        //Output: [-1, 150, 160, 170, -1, -1, 190, -1]
 
         int[] testTwo = {-1, -1, -1, -1, -1};
         //Output: [-1, -1, -1, -1, -1]
@@ -19,9 +19,8 @@ public class Main {
 
     private static int[] sortByHeight(int[] a) {
 
-        int count = 0;
-        int max = 0;
         int temp;
+        int increase = 0;
 
         for (int i = 0; i < a.length; i++) {
 
@@ -29,14 +28,37 @@ public class Main {
 
                 if (j < (a.length - 1)) {
 
-                    if (a[j] > a[j + 1]) {
+                    if (a[j + 1] == -1) {
 
-                        temp = a[j + 1];
-                        a[j + 1] = a[j];
-                        a[j] = temp;
+                        while (a[j + increase] == -1 && (j + increase) < (a.length - 1)) {
+
+                            increase++;
+
+                        }
+
+                        if (a[j] > a[j + increase] && a[j + increase] != -1) {
+
+                            temp = a[j + increase];
+                            a[j + increase] = a[j];
+                            a[j] = temp;
+
+                        }
+
+                    } else  {
+
+                        if (a[j] > a[j + 1]) {
+
+                            temp = a[j + 1];
+                            a[j + 1] = a[j];
+                            a[j] = temp;
+
+                        }
 
                     }
+
                 }
+
+                increase = 1;
 
             }
 
