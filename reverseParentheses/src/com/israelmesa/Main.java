@@ -40,31 +40,36 @@ public class Main {
                 openParCount++;
                 openIndex = i + 1;
 
-                for (int j = i; j < array.length; j++) {
+                for (int j = i + 1; j < array.length; j++) {
 
-                    if (array[j].equals("(") || array[j].equals(")")) {
+                    if (array[j].equals("(")) {
 
                         openParCount++;
+
+                    } else if (array[j].equals(")")) {
+
                         closeParCount++;
 
-                        if (openParCount == closeParCount) {
+                    }
 
-                            closeIndex = j - 1;
-                            while (openIndex < closeIndex) {
+                    if (openParCount == closeParCount) {
 
-                                list.add(array[closeIndex]);
-                                closeIndex--;
+//                        System.out.println(j);
+                        closeIndex = j;
+                        decrease = j - 1;
+                        while (openIndex < decrease) {
 
-                            }
-
+//                            System.out.println(array[closeIndex]);
+                            list.add(array[closeIndex]);
+                            decrease--;
 
                         }
-
 
                     }
 
                 }
 
+                i = closeIndex;
 
             } else  {
 
