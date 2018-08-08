@@ -16,7 +16,7 @@ public class Main {
         //Output: "apmnolkjihgfedcbq"
 
 
-        reverseParentheses(one);
+        reverseParentheses(two);
 
     }
 
@@ -24,10 +24,10 @@ public class Main {
 
         int openParCount = 0;
         int closeParCount = 0;
-        int openIndex = 0;
+        int openIndex;
         int closeIndex = 0;
         int increase = 0;
-        int decrease = 0;
+        int decrease;
         int countParen = 0;
         String array[] = s.split("");
 //        List<String> list = new ArrayList<String>(Arrays.asList(s.split("")));
@@ -52,16 +52,19 @@ public class Main {
 
                     }
 
-                    if (openParCount == closeParCount) {
+                    if (openParCount == closeParCount && openParCount > 0 && closeParCount > 0) {
 
-//                        System.out.println(j);
+//                        System.out.println(openParCount +  " - " + closeParCount);
+
                         closeIndex = j;
                         decrease = j - 1;
-                        while (openIndex < decrease) {
 
-//                            System.out.println(array[closeIndex]);
-                            list.add(array[closeIndex]);
+                        while (openIndex <= decrease) {
+
+                            list.add(array[decrease]);
                             decrease--;
+                            openParCount = 0;
+                            closeParCount = 0;
 
                         }
 
