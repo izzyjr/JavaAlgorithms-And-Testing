@@ -10,13 +10,16 @@ public class Main {
 
 
         String one = "abcde";
-        //Output: "acbde"
+
+        //abcde
+
+        //Output: "edcba"
 
         String two = "a(bcdefghijkl(mno)p)q";
         //Output: "apmnolkjihgfedcbq"
 
 
-        reverseParentheses(two);
+        reverseParentheses(one);
 
     }
 
@@ -24,17 +27,37 @@ public class Main {
 
         int openParCount = 0;
         int closeParCount = 0;
-        int temp;
-
         String array[] = s.split("");
         List<String> stringList = new ArrayList<String>(Arrays.asList(s.split("")));
         List<String> list = new ArrayList<String>();
 
+        int count = 0;
+        int increase = 0;
+        int last = stringList.size() - 1;
+
+        while (count < stringList.size()) {
+
+            System.out.println(stringList.get(last));
+            stringList.add(increase, stringList.get(last));
+            stringList.remove(last + 1);
+            count++;
+            increase++;
+
+        }
+
+        System.out.println("**********************");
+
+        for (int j = 0; j < stringList.size(); j++) {
+
+            System.out.println(stringList.get(j));
+
+        }
 
 
         return s;
 
     }
+
 }
 
 
