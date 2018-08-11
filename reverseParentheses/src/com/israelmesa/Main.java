@@ -9,7 +9,7 @@ public class Main {
     public static void main(String[] args) {
 
 
-        String one = "(abcde)";
+        String one = "a(bc)de";
         //Output: "a(cb)de"
 
         String two = "a(bcdefghijkl(mno)p)q";
@@ -22,23 +22,57 @@ public class Main {
 
     private static String reverseParentheses(String s) {
 
-        int openPar = 0;
-        int closePar = 0;
+        boolean noParLeft = false;
         String array[] = s.split("");
         List<String> stringList = new ArrayList<String>(Arrays.asList(s.split("")));
-        List<String> list = new ArrayList<String>();
+        List<String> listToManipulate = new ArrayList<String>();
+        int[] parArray = startFinishPar(stringList);
 
-        for (int i = 0; i < stringList.size(); i++) {
 
-            if (stringList.get(i).equals("(")) {
+        while (!noParLeft) {
 
-                list.add(stringList.get(i));
+            for (int j = 0; j < stringList.size(); j++) {
+
+                if (stringList.get(j).equals("(") || stringList.get(j).equals(")")) {
+
+                    noParLeft = false;
+                    System.out.println("hello");
+
+                } else {
+
+                    noParLeft = true;
+
+
+                }
 
             }
 
+            for (int k = parArray[0]; k <= parArray[1]; k++) {
+
+                listToManipulate.add(stringList.get(k));
+
+            }
+
+            reverseAndClean(listToManipulate);
+
+            for (int m = 0; m < listToManipulate.size(); m++) {
+
+                stringList.add(parArray[0], listToManipulate.get(m));
+
+            }
+
+
+
         }
 
-        reverseAndClean(stringList);
+        for (int n = 0; n < stringList.size(); n++) {
+
+            System.out.println(stringList.get(n));
+
+        }
+
+
+
 
         return s;
 
@@ -64,12 +98,50 @@ public class Main {
 
         for (int j = 0; j < tobeReversed.size(); j++) {
 
-            System.out.println(tobeReversed.get(j));
+//            System.out.println(tobeReversed.get(j));
 
         }
 
         return tobeReversed;
 
+    }
+
+    private static int[] startFinishPar(List<String> toBeReversed) {
+
+        int openParCount = 0;
+        int closeParCount = 0;
+
+        int[] startFinish = new int[2];
+
+        for (int i = 0; i < toBeReversed.size(); i++) {
+
+            if (toBeReversed.get(i).equals("(")) {
+
+                openParCount++;
+
+                if (openParCount == 1) {
+
+                    startFinish[0] = i;
+//                    System.out.println(startFinish[0]);
+
+                }
+
+            } else if (toBeReversed.get(i).equals(")")) {
+
+                closeParCount++;
+
+                if (closeParCount == openParCount) {
+
+                    startFinish[1] = i;
+//                    System.out.println(startFinish[1]);
+
+                }
+
+            }
+
+        }
+
+        return startFinish;
     }
 
 }
