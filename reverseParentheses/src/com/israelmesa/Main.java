@@ -31,30 +31,34 @@ public class Main {
         List<String> stringList = new ArrayList<String>(Arrays.asList(s.split("")));
         List<String> list = new ArrayList<String>();
 
+        reverse(stringList);
+
+        return s;
+
+    }
+
+    private static List<String> reverse(List<String> tobeReversed) {
+
         int count = 0;
         int increase = 0;
-        int last = stringList.size() - 1;
+        int lastIndex = tobeReversed.size() - 1;
 
-        while (count < stringList.size()) {
+        while (count < tobeReversed.size()) {
 
-            System.out.println(stringList.get(last));
-            stringList.add(increase, stringList.get(last));
-            stringList.remove(last + 1);
+            tobeReversed.add(increase, tobeReversed.get(lastIndex));
+            tobeReversed.remove(lastIndex + 1);
             count++;
             increase++;
 
         }
 
-        System.out.println("**********************");
+        for (int j = 0; j < tobeReversed.size(); j++) {
 
-        for (int j = 0; j < stringList.size(); j++) {
-
-            System.out.println(stringList.get(j));
+            System.out.println(tobeReversed.get(j));
 
         }
 
-
-        return s;
+        return tobeReversed;
 
     }
 
