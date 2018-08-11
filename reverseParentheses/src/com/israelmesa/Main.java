@@ -9,11 +9,8 @@ public class Main {
     public static void main(String[] args) {
 
 
-        String one = "abcde";
-
-        //abcde
-
-        //Output: "edcba"
+        String one = "(abcde)";
+        //Output: "a(cb)de"
 
         String two = "a(bcdefghijkl(mno)p)q";
         //Output: "apmnolkjihgfedcbq"
@@ -25,19 +22,29 @@ public class Main {
 
     private static String reverseParentheses(String s) {
 
-        int openParCount = 0;
-        int closeParCount = 0;
+        int openPar = 0;
+        int closePar = 0;
         String array[] = s.split("");
         List<String> stringList = new ArrayList<String>(Arrays.asList(s.split("")));
         List<String> list = new ArrayList<String>();
 
-        reverse(stringList);
+        for (int i = 0; i < stringList.size(); i++) {
+
+            if (stringList.get(i).equals("(")) {
+
+                list.add(stringList.get(i));
+
+            }
+
+        }
+
+        reverseAndClean(stringList);
 
         return s;
 
     }
 
-    private static List<String> reverse(List<String> tobeReversed) {
+    private static List<String> reverseAndClean(List<String> tobeReversed) {
 
         int count = 0;
         int increase = 0;
@@ -51,6 +58,9 @@ public class Main {
             increase++;
 
         }
+
+        tobeReversed.remove(lastIndex);
+        tobeReversed.remove(0);
 
         for (int j = 0; j < tobeReversed.size(); j++) {
 
@@ -188,17 +198,3 @@ public class Main {
 //
 //    }
 
-//
-//        for (int i =  0; i < stringList.size(); i++) {
-//
-//        if (stringList.get(i).equals("(")) {
-//
-//        openParCount++;
-//
-//        } else if (stringList.get(i).equals(")")) {
-//
-//        closeParCount++;
-//
-//        }
-//
-//        }
