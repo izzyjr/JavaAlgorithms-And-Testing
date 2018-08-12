@@ -16,60 +16,67 @@ public class Main {
         //Output: "apmnolkjihgfedcbq"
 
 
-        reverseParentheses(one);
+        reverseParentheses(two);
 
     }
 
     private static String reverseParentheses(String s) {
 
-        boolean noParLeft = false;
+        boolean parLeft = false;
+        boolean passes = false;
+        int parCount = 0;
         String array[] = s.split("");
         List<String> stringList = new ArrayList<String>(Arrays.asList(s.split("")));
         List<String> listToManipulate = new ArrayList<String>();
-        int[] parArray = startFinishPar(stringList);
 
 
-        while (!noParLeft) {
+        while (!passes) {
 
             for (int j = 0; j < stringList.size(); j++) {
 
                 if (stringList.get(j).equals("(") || stringList.get(j).equals(")")) {
 
-                    noParLeft = false;
-                    System.out.println("hello");
-
-                } else {
-
-                    noParLeft = true;
-
+                    parCount++;
 
                 }
 
             }
 
-            for (int k = parArray[0]; k <= parArray[1]; k++) {
+            if (parCount > 0) {
 
-                listToManipulate.add(stringList.get(k));
+                int[] parArray = startFinishPar(stringList);
+
+                for (int k = parArray[1]; k >= parArray[0]; k--) {
+
+                    listToManipulate.add(0, stringList.get(k));
+                    stringList.remove(k);
+
+                }
+
+                reverseAndClean(listToManipulate);
+                System.out.println(parCount + "Hello");
+                parCount =- 2;
+
+                for (int m = listToManipulate.size() - 1; m >= 0 ; m--) {
+
+                    stringList.add(parArray[0], listToManipulate.get(m));
+                    System.out.println(parCount + "Bye");
+
+                }
+
+            } else {
+
+                passes = true;
 
             }
 
-            reverseAndClean(listToManipulate);
-
-            for (int m = 0; m < listToManipulate.size(); m++) {
-
-                stringList.add(parArray[0], listToManipulate.get(m));
-
-            }
-
-
-
         }
 
-        for (int n = 0; n < stringList.size(); n++) {
-
-            System.out.println(stringList.get(n));
-
-        }
+//        for (int n = 0; n < stringList.size(); n++) {
+//
+//            System.out.println(stringList.get(n));
+//
+//        }
 
 
 
