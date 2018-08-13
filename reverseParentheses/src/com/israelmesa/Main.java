@@ -1,5 +1,7 @@
 package com.israelmesa;
 
+import com.sun.deploy.util.StringUtils;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -54,11 +56,7 @@ public class Main {
 
         }
 
-        for (int n = 0; n < stringList.size(); n++) {
-
-            System.out.println(stringList.get(n));
-
-        }
+        System.out.println(listToString(stringList));
 
         return s;
 
@@ -186,102 +184,13 @@ public class Main {
 
     }
 
+    private static String listToString(List<String> toBeReversed) {
+
+        String string = toBeReversed.toString().replaceAll("\\[|\\]|[,][ ]","");
+
+        return  string;
+
+    }
+
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//while (!passes) {
-//
-//        for (int j = 0; j < stringList.size(); j++) {
-//
-//        if (stringList.get(j).equals("(") || stringList.get(j).equals(")")) {
-//
-//        parCount++;
-//
-//        }
-//
-//        }
-//
-//        if (parCount > 0) {
-//
-//        int[] parArray = startFinishPar(stringList);
-//
-//        for (int k = parArray[1]; k >= parArray[0]; k--) {
-//
-//        listToManipulate.add(0, stringList.get(k));
-//        stringList.remove(k);
-//
-//        }
-//
-//        reverseAndClean(listToManipulate);
-//        parCount = parCount - 2;
-//
-//        for (int m = listToManipulate.size() - 1; m >= 0 ; m--) {
-//
-//        stringList.add(parArray[0], listToManipulate.get(m));
-//
-//        }
-//
-//        if (parCount == 2) {
-//
-//        parArray = startFinishPar(stringList);
-//        System.out.println(parArray[0] + " - " + parArray[1]);
-//        passes = true;
-//
-//        }
-//
-//
-//        } else if (parCount == 2){
-//
-//        passes = true;
-//
-//        }
-//
-//        }
-
-
-
-
-
-
-
 
