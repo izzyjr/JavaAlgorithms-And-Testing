@@ -10,20 +10,25 @@ public class Main {
 
 
         String one = "a(bc)de";
-        //Output: a(cb)de
+        //Output: acbde
 
         String two = "a(bcdefghijkl(mno)p)q";
-        //Output: "apmnolkjihgfedcbq"
+        //Output: apmnolkjihgfedcbq"
 
+        String three = "co(de(fight)s)";
+        //Output: cosfighted
 
-        reverseParentheses(two);
+        String four = "The ((quick (brown) (fox) jumps over the lazy) dog)";
+        //Output: The god quick nworb xof jumps over the lazy
+
+        reverseParentheses(four);
 
     }
 
     private static String reverseParentheses(String s) {
 
         boolean passes = false;
-        int parenthesisCount = 0;
+        int parenthesisCount;
 
         List<String> stringList = new ArrayList<String>(Arrays.asList(s.split("")));
 
@@ -109,7 +114,6 @@ public class Main {
         int start = 0;
         int finish = 0;
 
-
         for (int i = 0; i < toBeReversed.size(); i++) {
 
             if (toBeReversed.get(i).equals("(")) {
@@ -131,6 +135,13 @@ public class Main {
                     finish = i;
 
                 }
+
+            }
+
+            if (closeParCount == 1 && openParCount == 1) {
+
+                finish = i;
+                break;
 
             }
 
