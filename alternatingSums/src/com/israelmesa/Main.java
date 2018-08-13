@@ -13,14 +13,32 @@ public class Main {
 
     }
 
-    private static int[] alternatingSums(int[] a) {
+    private static int[] alternatingSums(int[] arrayOfWeights) {
 
-        int[] array = new int[2];
+        int[] weightsAdded = new int[2];
 
+        for (int i = 0; i < arrayOfWeights.length; i++) {
 
-        return array;
+            if (i % 2 == 0) {
+
+                weightsAdded[0] += arrayOfWeights[i];
+
+            } else if (i % 2 == 1) {
+
+                weightsAdded[1] += arrayOfWeights[i];
+
+            }
+
+        }
+
+        for (int j = 0; j < weightsAdded.length; j++) {
+
+            System.out.println(weightsAdded[j]);
+
+        }
+
+        return weightsAdded;
 
     }
-
 
 }
