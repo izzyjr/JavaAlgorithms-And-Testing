@@ -58,7 +58,7 @@ public class Main {
 
         System.out.println(listToString(stringList));
 
-        return s;
+        return listToString(stringList);
 
     }
 
@@ -93,12 +93,6 @@ public class Main {
 
         tobeReversed.remove(lastIndex);
         tobeReversed.remove(0);
-
-//        for (int j = 0; j < tobeReversed.size(); j++) {
-//
-//            System.out.println(tobeReversed.get(j));
-//
-//        }
 
         return tobeReversed;
 
@@ -179,7 +173,6 @@ public class Main {
 
         }
 
-//        System.out.println("parCount: " + parCount);
         return parCount;
 
     }
