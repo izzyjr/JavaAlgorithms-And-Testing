@@ -10,7 +10,7 @@ public class Main {
 
 
         String one = "a(bc)de";
-        //Output: "a(cb)de"
+        //Output: a(cb)de
 
         String two = "a(bcdefghijkl(mno)p)q";
         //Output: "apmnolkjihgfedcbq"
@@ -24,62 +24,29 @@ public class Main {
 
         boolean parLeft = false;
         boolean passes = false;
-        int parCount = 0;
-        String array[] = s.split("");
+        List<String> listToProcess = new ArrayList<String>();
         List<String> stringList = new ArrayList<String>(Arrays.asList(s.split("")));
-        List<String> listToManipulate = new ArrayList<String>();
+
+        listToProcess = copyToBeProcessed(stringList);
 
 
-        while (!passes) {
 
-            for (int j = 0; j < stringList.size(); j++) {
 
-                if (stringList.get(j).equals("(") || stringList.get(j).equals(")")) {
 
-                    parCount++;
 
-                }
 
-            }
 
-            if (parCount > 0) {
 
-                int[] parArray = startFinishPar(stringList);
 
-                for (int k = parArray[1]; k >= parArray[0]; k--) {
 
-                    listToManipulate.add(0, stringList.get(k));
-                    stringList.remove(k);
 
-                }
 
-                reverseAndClean(listToManipulate);
-                System.out.println(parCount + "Hello");
-                parCount =- 2;
 
-                for (int m = listToManipulate.size() - 1; m >= 0 ; m--) {
+        for (int n = 0; n < listToProcess.size(); n++) {
 
-                    stringList.add(parArray[0], listToManipulate.get(m));
-                    System.out.println(parCount + "Bye");
-
-                }
-
-            } else {
-
-                passes = true;
-
-            }
+            System.out.println(listToProcess.get(n));
 
         }
-
-//        for (int n = 0; n < stringList.size(); n++) {
-//
-//            System.out.println(stringList.get(n));
-//
-//        }
-
-
-
 
         return s;
 
@@ -93,6 +60,20 @@ public class Main {
 
         while (count < tobeReversed.size()) {
 
+            if (tobeReversed.get(lastIndex).equals("(")) {
+
+                String endPar = ")";
+                tobeReversed.add(lastIndex, endPar);
+                tobeReversed.remove(lastIndex + 1);
+
+            } else if (tobeReversed.get(lastIndex).equals(")")) {
+
+                String endPar = "(";
+                tobeReversed.add(lastIndex, endPar);
+                tobeReversed.remove(lastIndex + 1);
+
+            }
+
             tobeReversed.add(increase, tobeReversed.get(lastIndex));
             tobeReversed.remove(lastIndex + 1);
             count++;
@@ -103,22 +84,24 @@ public class Main {
         tobeReversed.remove(lastIndex);
         tobeReversed.remove(0);
 
-        for (int j = 0; j < tobeReversed.size(); j++) {
-
+//        for (int j = 0; j < tobeReversed.size(); j++) {
+//
 //            System.out.println(tobeReversed.get(j));
-
-        }
+//
+//        }
 
         return tobeReversed;
 
     }
 
-    private static int[] startFinishPar(List<String> toBeReversed) {
+    private static List<String> copyToBeProcessed(List<String> toBeReversed) {
 
+        List<String> listToProcess = new ArrayList<String>();
         int openParCount = 0;
         int closeParCount = 0;
+        int start = 0;
+        int finish = 0;
 
-        int[] startFinish = new int[2];
 
         for (int i = 0; i < toBeReversed.size(); i++) {
 
@@ -128,8 +111,7 @@ public class Main {
 
                 if (openParCount == 1) {
 
-                    startFinish[0] = i;
-//                    System.out.println(startFinish[0]);
+                    start = i;
 
                 }
 
@@ -139,8 +121,7 @@ public class Main {
 
                 if (closeParCount == openParCount) {
 
-                    startFinish[1] = i;
-//                    System.out.println(startFinish[1]);
+                    finish = i;
 
                 }
 
@@ -148,7 +129,34 @@ public class Main {
 
         }
 
-        return startFinish;
+        for (int k = finish; k >= start; k--) {
+
+            listToProcess.add(0, toBeReversed.get(k));
+            toBeReversed.remove(k);
+
+        }
+
+        return listToProcess;
+    }
+
+
+    private static int parenthesisCount(List<String> toBeReversed) {
+
+        int parCount = 0;
+
+        for (int i = 0; i < toBeReversed.size(); i++) {
+
+            if (toBeReversed.get(i).equals("(") || toBeReversed.get(i).equals(")")) {
+
+                parCount++;
+
+            }
+
+        }
+
+//        System.out.println("parCount: " + parCount);
+        return parCount;
+
     }
 
 }
@@ -194,86 +202,59 @@ public class Main {
 
 
 
-
-
-
-
-
-
-
-
-
-//    private static String reverseParentheses(String s) {
+//while (!passes) {
 //
-//        int openParCount = 0;
-//        int closeParCount = 0;
-//        int openIndex;
-//        int closeIndex = 0;
-//        int increase = 0;
-//        int decrease;
-//        int countParen = 0;
-//        String array[] = s.split("");
-////        List<String> list = new ArrayList<String>(Arrays.asList(s.split("")));
-//        List<String> list = new ArrayList<String>();
+//        for (int j = 0; j < stringList.size(); j++) {
 //
-//        for (int i = 0; i < array.length; i++) {
+//        if (stringList.get(j).equals("(") || stringList.get(j).equals(")")) {
 //
-//            if (array[i].equals("(")) {
-//
-//                openParCount++;
-//                openIndex = i + 1;
-//
-//                for (int j = i + 1; j < array.length; j++) {
-//
-//                    if (array[j].equals("(")) {
-//
-//                        openParCount++;
-//
-//                    } else if (array[j].equals(")")) {
-//
-//                        closeParCount++;
-//
-//                    }
-//
-//                    if (openParCount == closeParCount && openParCount > 0 && closeParCount > 0) {
-//
-////                        System.out.println(openParCount +  " - " + closeParCount);
-//
-//                        closeIndex = j;
-//                        decrease = j - 1;
-//
-//                        while (openIndex <= decrease) {
-//
-//                            list.add(array[decrease]);
-//                            decrease--;
-//                            openParCount = 0;
-//                            closeParCount = 0;
-//
-//                        }
-//
-//                    }
-//
-//                }
-//
-//                i = closeIndex;
-//
-//            } else  {
-//
-//                list.add(array[i]);
-//
-//            }
+//        parCount++;
 //
 //        }
 //
-//        for (int k = 0; k < list.size(); k++) {
+//        }
 //
-//            System.out.println(list.get(k));
+//        if (parCount > 0) {
+//
+//        int[] parArray = startFinishPar(stringList);
+//
+//        for (int k = parArray[1]; k >= parArray[0]; k--) {
+//
+//        listToManipulate.add(0, stringList.get(k));
+//        stringList.remove(k);
+//
+//        }
+//
+//        reverseAndClean(listToManipulate);
+//        parCount = parCount - 2;
+//
+//        for (int m = listToManipulate.size() - 1; m >= 0 ; m--) {
+//
+//        stringList.add(parArray[0], listToManipulate.get(m));
+//
+//        }
+//
+//        if (parCount == 2) {
+//
+//        parArray = startFinishPar(stringList);
+//        System.out.println(parArray[0] + " - " + parArray[1]);
+//        passes = true;
 //
 //        }
 //
 //
+//        } else if (parCount == 2){
 //
-//        return s;
+//        passes = true;
 //
-//    }
+//        }
+//
+//        }
+
+
+
+
+
+
+
 
