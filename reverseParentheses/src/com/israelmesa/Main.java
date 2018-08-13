@@ -22,29 +22,36 @@ public class Main {
 
     private static String reverseParentheses(String s) {
 
-        boolean parLeft = false;
         boolean passes = false;
-        List<String> listToProcess = new ArrayList<String>();
+        int parenthesisCount = 0;
+
         List<String> stringList = new ArrayList<String>(Arrays.asList(s.split("")));
 
-        listToProcess = copyToBeProcessed(stringList);
+        while (!passes) {
 
+            parenthesisCount = parenthesisCount(stringList);
 
+            if (parenthesisCount > 0) {
 
+                copyToBeProcessed(stringList);
 
+                if (parenthesisCount == 0) {
 
+                    passes = true;
 
+                }
 
+            } else if (parenthesisCount == 0) {
 
+                passes = true;
 
+            }
 
+        }
 
+        for (int n = 0; n < stringList.size(); n++) {
 
-
-
-        for (int n = 0; n < listToProcess.size(); n++) {
-
-            System.out.println(listToProcess.get(n));
+            System.out.println(stringList.get(n));
 
         }
 
@@ -136,7 +143,16 @@ public class Main {
 
         }
 
-        return listToProcess;
+        reverseAndClean(listToProcess);
+
+        for (int m = listToProcess.size() - 1; m >= 0 ; m--) {
+
+        toBeReversed.add(start, listToProcess.get(m));
+
+        }
+
+
+        return toBeReversed;
     }
 
 
