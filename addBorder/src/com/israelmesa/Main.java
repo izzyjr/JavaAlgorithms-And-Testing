@@ -26,12 +26,14 @@ public class Main {
         String[] framedPicture = new String[newArraySize];
         int stringLength = picture[0].length() + 2;
         int orginalArrayLengthCounter = 0;
+        String topBottom = topBottomFrameGenerator(stringLength);
 
         for (int i = 0; i < framedPicture.length; i++) {
 
             if (i == 0 || i == framedPicture.length - 1) {
-                String topBottom = "*****";
+
                 framedPicture[i] = topBottom;
+
             } else {
                 framedPicture[i] = picture[orginalArrayLengthCounter];
                 orginalArrayLengthCounter++;
@@ -48,9 +50,22 @@ public class Main {
     private static void printPicture(String[] framedPicture) {
 
         for (int i = 0; i < framedPicture.length; i++) {
-            System.out.println("\n" + framedPicture[i]);
+            System.out.println(framedPicture[i]);
         }
 
+    }
+
+    private static String topBottomFrameGenerator(int length) {
+
+        String topBottomFrame = "";
+
+        for (int i = 0; i < length; i++) {
+
+            topBottomFrame = topBottomFrame.concat("*");
+
+        }
+
+        return topBottomFrame;
     }
 
 }
