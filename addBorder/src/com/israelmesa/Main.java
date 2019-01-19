@@ -16,7 +16,7 @@ public class Main {
         String[] pictureFour = {"wzy**"};
         //Output: "*******", "*wzy***","*******"
 
-        addBorder(pictureOne);
+        addBorder(pictureFour);
 
     }
 
@@ -35,7 +35,7 @@ public class Main {
                 framedPicture[i] = topBottom;
 
             } else {
-                framedPicture[i] = picture[orginalArrayLengthCounter];
+                framedPicture[i] = "*" + picture[orginalArrayLengthCounter] + "*";
                 orginalArrayLengthCounter++;
             }
 
