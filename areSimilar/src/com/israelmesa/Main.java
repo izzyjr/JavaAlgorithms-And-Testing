@@ -1,7 +1,5 @@
 package com.israelmesa;
 
-import java.util.Arrays;
-
 public class Main {
 
     public static void main(String[] args) {
@@ -22,55 +20,38 @@ public class Main {
         int[] fourA = {1, 2, 3};
         int[] fourB = {2, 1, 3};
 
-        areSimilar(fourA, fourB);
+        // test 5 - true
+        int[] fiveA = {832, 998, 148, 570, 533, 561, 894, 147, 455, 279};
+        int[] fiveB = {832, 998, 148, 570, 533, 561, 455, 147, 894, 279};
+
+        areSimilar(fiveA, fiveB);
 
     }
 
     public static boolean areSimilar(int[] a, int[] b) {
 
-        int arrayLength = a.length;
-        int counter = 0;
-        int[] realA = Arrays.copyOf(a, a.length);
-        int[] realB = Arrays.copyOf(b, b.length);
-
-        if (sameNumbers(a, b)) {
-
-            for (int i = 0; i < arrayLength; i++) {
-
-                if (realA[i] != realB[i]) {
-
-                    counter++;
-
-                }
-
-            }
-
-            if (counter > 2) {
-
-                return false;
-
-            }
-
-            return true;
-
-        }
-
-        return false;
-
-    }
-
-    public static boolean sameNumbers(int[] a, int[] b) {
-
-        int counter = 0;
+        int sumA = 0;
+        int sumB = 0;
+        int sameCounter = 0;
+        int parallelCounter = 0;
         int arrayLength = a.length;
 
         for (int i = 0; i < arrayLength; i++) {
 
+            sumA += a[i];
+            sumB += b[i];
+
+            if (a[i] != b[i]) {
+
+                parallelCounter++;
+
+            }
+
             for (int j = 0; j < arrayLength; j++) {
 
                 if (a[i] == b[j]) {
-                    counter++;
-                    b[j] = 0;
+
+                    sameCounter++;
                     j = arrayLength;
 
                 }
@@ -79,7 +60,7 @@ public class Main {
 
         }
 
-        if (counter == arrayLength) {
+        if (sameCounter == arrayLength && parallelCounter <= 2 && sumA == sumB) {
             return true;
         }
 
