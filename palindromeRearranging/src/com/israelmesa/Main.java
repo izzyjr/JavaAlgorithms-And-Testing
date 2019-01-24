@@ -8,35 +8,35 @@ public class Main {
         String one = "aabb";
 
         // test 2 - true
-        String two = "abbabb";
+        String two = "abbcabb";
+
+        // test 3 - false
+        String three = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaabbbccccaaaaaaaaaaaaa";
 
 
-        palindromeRearranging(two);
+        palindromeRearranging(three);
 
 
     }
 
     public static boolean palindromeRearranging(String inputString) {
 
-        int stringLength = inputString.length();
         int pairCounter = 0;
-        String newString = inputString;
+        String[] stringArrayOne = inputString.split("");
+        String[] stringArrayTwo = inputString.split("");
+        int arrayLength = stringArrayOne.length;
 
+        for(int i = 0; i < arrayLength; i++) {
 
-
-        for(int i = 0; i < stringLength; i++) {
-
-            for (int j = 0; j < stringLength; j++) {
+            for (int j = 0; j < arrayLength; j++) {
 
                 if (i != j) {
 
-                    System.out.println(inputString.charAt(i) == inputString.charAt(j));
-                    System.out.println(inputString.charAt(i) + " - " + inputString.charAt(j));
+                    if (stringArrayOne[i].equals(stringArrayTwo[j])) {
 
-                    if (inputString.charAt(i) == newString.charAt(j)) {
-
-                        newString = inputString.replace(newString.charAt(j), '*');
                         pairCounter++;
+                        stringArrayTwo[j] = "*";
+                        j = arrayLength;
 
                     }
 
@@ -46,25 +46,20 @@ public class Main {
 
         }
 
-        System.out.println("Counter: " + pairCounter);
+        if (isEven(arrayLength)) {
 
-        if (isEven(stringLength)) {
-
-            if (pairCounter == stringLength) {
-                System.out.println("True");
+            if (pairCounter == arrayLength) {
                 return true;
             }
 
         } else {
 
-            if (pairCounter == stringLength) {
-                System.out.println("True");
+            if (pairCounter == arrayLength - 1) {
                 return true;
             }
 
         }
 
-        System.out.println("False");
         return false;
 
     }
