@@ -6,8 +6,8 @@ public class Main {
 
         // TEST - 1
         // image:   [[1,1,1],
-        //          [1,7,1],
-        //          [1,1,1]]
+        //           [1,7,1],
+        //           [1,1,1]]
 
         // expected output: [[1]]
 
@@ -17,8 +17,8 @@ public class Main {
 
         // TEST - 2
         //image:    [[0,18,9],
-        //          [27,9,0],
-        //          [81,63,45]]
+        //           [27,9,0],
+        //           [81,63,45]]
 
         // expected output: [[28]]
 
@@ -60,7 +60,7 @@ public class Main {
         //        [45,18,9,0,9,18,45],
         //        [27,81,36,63,63,72,81]]
 
-        //Expected Output:    [[39,30,26,25,31],
+        //Expected Output:   [[39,30,26,25,31],
         //                    [34,37,35,32,32],
         //                    [38,41,44,46,42],
         //                    [22,24,31,39,45],
@@ -78,9 +78,39 @@ public class Main {
 
     public static int[][] boxBlur(int[][] image) {
 
+        int rows = image.length;
+        int columns = image[0].length;
+        int[][] newImage = developNewDimenssions(image);
+
+        for (int i = 0; i < rows; i++) {
+
+            for (int j = 0; j < columns; j++) {
+
+                if (image[i][j + 2] <= columns && image[i + 2][j] <= rows) {
+
+                    
+
+                }
+
+            }
+
+        }
+
 
 
         return image;
+    }
+
+    public static int[][] developNewDimenssions(int[][] image) {
+
+        int [][] newImage;
+        int array = image.length - 2;
+        int arrayInArray = image[0].length - 2;
+
+        newImage = new int[array][arrayInArray];
+
+        return newImage;
+
     }
 
 }
