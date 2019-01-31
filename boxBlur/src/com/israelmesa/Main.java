@@ -87,7 +87,7 @@ public class Main {
         int[][] newImage = developNewDimensions(image);
         int newRows = newImage.length;
         int newColumns = newImage[0].length;
-        int z = -1;
+        boolean ready = false;
 
         for (int a = 0; a < newRows; a++) {
 
@@ -104,22 +104,35 @@ public class Main {
 
             for (int j = 0; j < columns - 2; j++) {
 
-                System.out.println("Square: " + image[i][j]);
+                ready = false;
+                System.out.println("Square: " + image[i][j] + " - i: " + i + " j: " + j);
 
-                z++;
+                while (!ready) {
 
-                for (int x = i; x < (rows - 2) + z; x++) {
+                    int rowPixel = i;
+                    int columnPixel = j;
 
-                    for (int y = j; y < (columns - 2) + z; y++) {
+                    while (columnPixel + 2 <= columns) {
 
-                        System.out.println("Pixel: " + image[x][y]);
+                        while (rowPixel + 2 <= rows) {
 
-                        totalSum += image[x][y];
-                        array[counter] = totalSum / 9;
+                            System.out.println("Pixel: " + image[rowPixel][columnPixel]);
+
+                            totalSum += image[rowPixel][columnPixel];
+                            array[counter] = totalSum / 9;
+                            rowPixel++;
+
+                        }
+
+                        rowPixel = i;
+                        columnPixel++;
 
                     }
 
+                    ready = true;
+
                 }
+
 
                 totalSum = 0;
                 counter++;
@@ -176,3 +189,4 @@ public class Main {
 
 //System.out.println("I: " + i);
 //System.out.println("J: " + j);
+
