@@ -9,7 +9,7 @@ public class Main {
         System.out.println(add(param1, param2));
 
     }
-    public static int add (int a, int b) {
-        return a + b;
+    public static int add (int x, int y) {
+        return x + y;
     }
 }
