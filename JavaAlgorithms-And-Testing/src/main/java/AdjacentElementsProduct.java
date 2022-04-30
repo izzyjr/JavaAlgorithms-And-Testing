@@ -1,5 +1,3 @@
-import static java.lang.Integer.MIN_VALUE;
-
 public class AdjacentElementsProduct {
 
     public static int adjacentElementsProduct(int[] inputArray) {
