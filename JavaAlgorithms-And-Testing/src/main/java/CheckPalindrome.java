@@ -14,7 +14,7 @@ public class CheckPalindrome {
         return true;
     }
 
-    private static boolean checkPalindrome0(String inputString) {
+    public static boolean checkPalindrome0(String inputString) {
         int length = inputString.length();
         int countDown = (inputString.length() - 1);
         int count = 0;
