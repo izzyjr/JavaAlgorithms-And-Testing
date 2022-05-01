@@ -19,5 +19,4 @@ public class TestAlmostIncreasingSequence {
     private void testAlmostIncreasingSequence(int[] sequence, boolean expectedResult) {
         assertEquals(AlmostIncreasingSequence.almostIncreasingSequence(sequence), expectedResult);
     }
-
 }
