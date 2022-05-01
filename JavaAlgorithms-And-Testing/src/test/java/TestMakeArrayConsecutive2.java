@@ -15,7 +15,7 @@ public class TestMakeArrayConsecutive2 {
     }
 
     @Test(dataProvider = "inputOutput")
-    private void testAdjacentElementsProduct(int[] statues, int[] expectedResult) {
-        assertEquals(MakeArrayConsecutive2.makeArrayConsecutive2(statues), expectedResult[0]);
+    private void testMakeArrayConsecutive2(int[] array, int[] expectedResult) {
+        assertEquals(MakeArrayConsecutive2.makeArrayConsecutive2(array), expectedResult[0]);
     }
 }

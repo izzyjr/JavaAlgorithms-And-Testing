@@ -17,7 +17,7 @@ public class TestCheckPalindrome {
     }
 
     @Test(dataProvider = "stringsAndResult")
-    private void testAdjacentElementsProduct(String inputString, boolean expectedResult) {
+    private void testCheckPalindrome(String inputString, boolean expectedResult) {
         assertEquals(CheckPalindrome.checkPalindrome(inputString), expectedResult);
     }
 

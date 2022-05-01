@@ -18,7 +18,7 @@ public class TestShapeArea {
     }
 
     @Test(dataProvider = "inputOutput")
-    private void testAdjacentElementsProduct(int n, int expectedResult) {
+    private void testShapeArea(int n, int expectedResult) {
         assertEquals(ShapeArea.shapeArea(n), expectedResult);
     }
 }
