@@ -15,6 +15,6 @@ public class TestMatrixElementSum {
 
     @Test(dataProvider = "matrix")
     private void testMatrixElementsSum(int[][] matrix) {
-        assertEquals(MatrixElementsSum.matrixElementSum(matrix), 9);
+        assertEquals(MatrixElementsSum.matrixElementsSum(matrix), 9);
     }
 }
