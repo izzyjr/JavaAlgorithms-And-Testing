@@ -18,5 +18,4 @@ public class TestCommonCharacterCount {
     private void testCommonCharacterCount(String s1, String s2, int expectedResult) {
         assertEquals(CommonCharacterCount.commonCharacterCount(s1, s2), expectedResult);
     }
-
 }
