@@ -16,7 +16,7 @@ public class TestIsLucky {
     }
 
     @Test(dataProvider = "inputOutput")
-    private void testCommonCharacterCount(int n, boolean expectedResult) {
+    private void testIsLucky(int n, boolean expectedResult) {
         assertEquals(IsLucky.isLucky(n), expectedResult);
     }
 }
