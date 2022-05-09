@@ -8,7 +8,6 @@ public class ReverseInParentheses {
         int next = 0;
 
         for (int i = 0; i < array.length; i++) {
-            System.out.println("where we at: " + i);
             int openBracketCount = 0;
             int closedBracketCount = 0;
             if (array[i] == '(') {
@@ -20,9 +19,8 @@ public class ReverseInParentheses {
                     if (array[iterator] == '(') {
                         openBracketCount++;
                         if (openBracketCount == 2) {
-                            next = iterator;
+                            i = iterator - 1;
                         }
-                        System.out.println("next - " + next);
                     } else if (array[iterator] == ')') {
                         closedBracketCount++;
                         if (openBracketCount == closedBracketCount) {
@@ -30,32 +28,31 @@ public class ReverseInParentheses {
                         }
                     }
                 }
-                System.out.println(start + " - " + end);
-                int k = start;
-                for (int j = end; j >= start; j--) {
-                    if (string.charAt(j) != '(' && string.charAt(j) != ')') {
-                        if (array[k] == '(' || array[k] == ')') {
-                            int count = k;
-                            while (array[count] == '(' || array[count] == ')') {
-                                ++count;
-                                array[count] = string.charAt(j);
-                            }
-                            k = count;
-                            k++;
-                        } else {
-                            array[k] = string.charAt(j);
-                            k++;
-                        }
-                    }
-                }
-                if (openBracketCount == 2) {
-                    i = next - 1;
-                }
+                copyToArrayReversed(array, string, start, end);
+                string = new String(array);
             }
         }
         return Arrays.toString(array);
     }
 
+    private static void copyToArrayReversed(char[] array, String string, int start, int end) {
+        int j = start;
+        for (int i = end; i >= start; i--) {
+            if (string.charAt(i) != '(' && string.charAt(i) != ')') {
+                if (array[j] == '(' || array[j] == ')') {
+                    int count = j;
+                    while (array[count] == '(' || array[count] == ')') {
+                        ++count;
+                        array[count] = string.charAt(i);
+                    }
+                    j = count;
+                } else {
+                    array[j] = string.charAt(i);
+                }
+                j++;
+            }
+        }
+    }
 }
 
 
