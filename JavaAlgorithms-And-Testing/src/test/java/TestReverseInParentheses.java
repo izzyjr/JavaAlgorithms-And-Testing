@@ -20,5 +20,4 @@ public class TestReverseInParentheses {
     private void testReverseInParentheses(String input, String expectedResult) {
         assertEquals(ReverseInParentheses.reverseInParentheses(input), expectedResult);
     }
-
 }
