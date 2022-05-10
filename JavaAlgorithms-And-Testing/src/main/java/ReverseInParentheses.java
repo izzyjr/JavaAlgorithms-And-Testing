@@ -1,41 +1,31 @@
-import java.util.Arrays;
-
 public class ReverseInParentheses {
 
     public static String reverseInParentheses(String string) {
 
         char[] array = string.toCharArray();
-        int next = 0;
 
         for (int i = 0; i < array.length; i++) {
-            int openBracketCount = 0;
-            int closedBracketCount = 0;
             if (array[i] == '(') {
-                openBracketCount++;
                 int start = i;
                 int end = i;
                 int iterator = i;
-                while (end == start && ++iterator < string.length()) {
+                while (array[++iterator] != ')') {
                     if (array[iterator] == '(') {
-                        openBracketCount++;
-                        if (openBracketCount == 2) {
-                            i = iterator - 1;
-                        }
-                    } else if (array[iterator] == ')') {
-                        closedBracketCount++;
-                        if (openBracketCount == closedBracketCount) {
-                            end = iterator;
-                        }
+                        i = start - 1;
+                        start = iterator;
                     }
                 }
-                copyToArrayReversed(array, string, start, end);
+                end = iterator;
+                copyStringToArrayReversed(array, string, start, end);
+                array[start] = '∆';
+                array[end] = '∆';
                 string = new String(array);
             }
         }
-        return Arrays.toString(array);
+        return string.replace("∆", "");
     }
 
-    private static void copyToArrayReversed(char[] array, String string, int start, int end) {
+    private static void copyStringToArrayReversed(char[] array, String string, int start, int end) {
         int j = start;
         for (int i = end; i >= start; i--) {
             if (string.charAt(i) != '(' && string.charAt(i) != ')') {

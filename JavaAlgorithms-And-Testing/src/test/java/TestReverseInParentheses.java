@@ -11,7 +11,8 @@ public class TestReverseInParentheses {
                 {"(bar)", "rab"},
                 {"foo(bar)baz", "foorabbaz"},
                 {"(abc)d(efg)", "cbadgfe"},
-                {"foo(bar(baz))blim", "foobazrabblim"}
+                {"foo(bar(baz))blim", "foobazrabblim"},
+                {"The ((quick (brown) (fox) jumps over the lazy) dog)", "The god quick nworb xof jumps over the lazy"},
         };
     }
 
