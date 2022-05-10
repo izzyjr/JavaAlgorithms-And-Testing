@@ -15,6 +15,9 @@ public class ReverseInParentheses {
                         start = iterator;
                     }
                 }
+                if (i != start - 1) {
+                    i = 0;
+                }
                 end = iterator;
                 copyStringToArrayReversed(array, string, start, end);
                 array[start] = '∆';
@@ -44,16 +47,3 @@ public class ReverseInParentheses {
         }
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
