@@ -8,7 +8,7 @@ public class FirstNotRepeatingCharacter {
             for (int j = 0; j < s.length(); j++) {
                 if (s.charAt(i) == s.charAt(j) && i != j) {
                     count++;
-                    if (count > 0 && i != s.length() - 1 && j != s.length() - 1) {
+                    if (i != s.length() - 1) {
                         i++;
                         j = 0;
                         if (i != s.length() - 1) {
@@ -20,7 +20,6 @@ public class FirstNotRepeatingCharacter {
             if (count == 0) {
                 return s.charAt(i);
             }
-            count = 0;
         }
         return '_';
     }
