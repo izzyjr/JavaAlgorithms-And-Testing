@@ -1,5 +1,3 @@
-import com.sun.source.tree.WhileLoopTree;
-
 public class RotateImage {
 
     public static int[][] rotateImage(int[][] a) {
