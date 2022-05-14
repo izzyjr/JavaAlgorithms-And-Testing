@@ -1,3 +1,5 @@
+package arrays;
+
 public class FirstNotRepeatingCharacter {
 
     public static char firstNotRepeatingCharacter(String s) {

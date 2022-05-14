@@ -1,3 +1,5 @@
+package arrays;
+
 public class RotateImage {
 
     public static int[][] rotateImage(int[][] a) {
