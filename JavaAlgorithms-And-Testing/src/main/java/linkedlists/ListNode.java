@@ -8,4 +8,12 @@ public class ListNode<T> {
     public ListNode(T x) {
      value = x;
    }
+
+    @Override
+    public String toString() {
+        return "ListNode{" +
+                "value=" + value +
+                ", next=" + next +
+                '}';
+    }
 }
