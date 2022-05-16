@@ -1,6 +1,5 @@
 package linkedlist;
 
-import linkedlists.IsListPalindrome;
 import linkedlists.ListNode;
 import linkedlists.RemoveKFromList;
 import org.testng.annotations.DataProvider;
