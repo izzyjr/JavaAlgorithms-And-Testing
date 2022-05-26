@@ -19,7 +19,11 @@ public class GroupingDishes {
                 if (rows == firstItemInRow && cols == 0) {
                     dish = dishes[rows][cols];
                 } else {
-                    map.put(dishes[rows][cols], new ArrayList<>(List.of(dish)));
+                    if (map.get(dishes[rows][cols]) == null) {
+                        map.put(dishes[rows][cols], new ArrayList<>(List.of(dish)));
+                    } else {
+                        map.get(dishes[rows][cols]).add(dish);
+                    }
                 }
             }
             firstItemInRow++;
