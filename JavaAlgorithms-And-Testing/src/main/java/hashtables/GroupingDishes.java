@@ -1,6 +1,7 @@
 package hashtables;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
@@ -29,21 +30,32 @@ public class GroupingDishes {
             firstItemInRow++;
         }
 
-        int arrSize = map.size();
+        printHashtable(map);
+
+        int arrSize = 0;
+        Map<String, Integer> keysAndSize = new HashMap<>();
+
+        for (Map.Entry<String, List<String>> entry : map.entrySet()) {
+            if (entry.getValue().size() >= 2) {
+                arrSize++;
+                keysAndSize.put(entry.getKey(), entry.getValue().size());
+            }
+        }
+
         String[][] result = new String[arrSize][];
         int j = arrSize - 1;
 
-        for (Map.Entry<String, List<String>> entry : map.entrySet()) {
-            int size = entry.getValue().size();
-            if (size >= 2) {
-                for (int i = 0; i < size; i++) {
-                    result[j] = new String[size];
-                    if (i == 0) {
-                        result[j][i] = entry.getValue().get(i);
-                    } else {
-                        result[j][i] = entry.getValue().get(i);
-                    }
+        for (Map.Entry<String, Integer> entry : keysAndSize.entrySet()) {
+            System.out.println(entry.getKey() + " - " + j);
+            int size = entry.getValue();
+            for (int i = 0; i < size; i++) {
+                result[j] = new String[size + 1];
+                if (i == 0) {
+                    result[j][i] = entry.getKey();
+                    System.out.println("if key: " + result[j][i]);
                 }
+                result[j][i] = map.get(entry.getKey()).get(i);
+                System.out.println("if not key: " + result[j][i]);
             }
             j--;
         }
