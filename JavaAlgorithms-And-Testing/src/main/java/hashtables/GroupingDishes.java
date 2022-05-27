@@ -29,9 +29,26 @@ public class GroupingDishes {
             firstItemInRow++;
         }
 
-        printHashtable(map);
+        int arrSize = map.size();
+        String[][] result = new String[arrSize][];
+        int j = arrSize - 1;
 
-        return dishes;
+        for (Map.Entry<String, List<String>> entry : map.entrySet()) {
+            int size = entry.getValue().size();
+            if (size >= 2) {
+                for (int i = 0; i < size; i++) {
+                    result[j] = new String[size];
+                    if (i == 0) {
+                        result[j][i] = entry.getValue().get(i);
+                    } else {
+                        result[j][i] = entry.getValue().get(i);
+                    }
+                }
+            }
+            j--;
+        }
+
+        return result;
     }
 
     public static void printHashtable(Map<String, List<String>> map) {
