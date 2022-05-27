@@ -1,6 +1,7 @@
 package hashtables;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
@@ -30,8 +31,6 @@ public class GroupingDishes {
             firstItemInRow++;
         }
 
-        printHashtable(map);
-
         int arrSize = 0;
         Map<String, Integer> keysAndSize = new HashMap<>();
 
@@ -48,6 +47,7 @@ public class GroupingDishes {
         for (Map.Entry<String, Integer> entry : keysAndSize.entrySet()) {
             System.out.println(entry.getKey() + " - " + j);
             int size = entry.getValue();
+            map.get(entry.getKey()).sort(Comparator.naturalOrder());
             for (int i = 0; i < size; i++) {
                 result[j] = new String[size + 1];
                 if (i == 0) {
