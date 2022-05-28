@@ -45,17 +45,14 @@ public class GroupingDishes {
         int j = arrSize - 1;
 
         for (Map.Entry<String, Integer> entry : keysAndSize.entrySet()) {
-            System.out.println(entry.getKey() + " - " + j);
             int size = entry.getValue();
             map.get(entry.getKey()).sort(Comparator.naturalOrder());
+            result[j] = new String[size + 1];
             for (int i = 0; i < size; i++) {
-                result[j] = new String[size + 1];
                 if (i == 0) {
                     result[j][i] = entry.getKey();
-                    System.out.println("if key: " + result[j][i]);
                 }
-                result[j][i] = map.get(entry.getKey()).get(i);
-                System.out.println("if not key: " + result[j][i]);
+                result[j][i + 1] = map.get(entry.getKey()).get(i);
             }
             j--;
         }
