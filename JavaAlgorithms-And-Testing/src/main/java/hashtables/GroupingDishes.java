@@ -1,6 +1,7 @@
 package hashtables;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
@@ -15,16 +16,16 @@ public class GroupingDishes {
         int firstItemInRow = 0;
         String dish = null;
 
-        Map<String, List<String>> map = new LinkedHashMap<String, List<String>>();
+        Map<String, List<String>> ingredientAndDishes = new LinkedHashMap<>();
         for (int rows = 0; rows < rowsLength; rows++) {
             for (int cols = 0; cols < dishes[rows].length; cols++) {
                 if (rows == firstItemInRow && cols == 0) {
                     dish = dishes[rows][cols];
                 } else {
-                    if (map.get(dishes[rows][cols]) == null) {
-                        map.put(dishes[rows][cols], new ArrayList<>(List.of(dish)));
+                    if (ingredientAndDishes.get(dishes[rows][cols]) == null) {
+                        ingredientAndDishes.put(dishes[rows][cols], new ArrayList<>(List.of(dish)));
                     } else {
-                        map.get(dishes[rows][cols]).add(dish);
+                        ingredientAndDishes.get(dishes[rows][cols]).add(dish);
                     }
                 }
             }
@@ -34,7 +35,7 @@ public class GroupingDishes {
         int arrSize = 0;
         Map<String, Integer> keysAndSize = new HashMap<>();
 
-        for (Map.Entry<String, List<String>> entry : map.entrySet()) {
+        for (Map.Entry<String, List<String>> entry : ingredientAndDishes.entrySet()) {
             if (entry.getValue().size() >= 2) {
                 arrSize++;
                 keysAndSize.put(entry.getKey(), entry.getValue().size());
@@ -42,29 +43,23 @@ public class GroupingDishes {
         }
 
         String[][] result = new String[arrSize][];
-        int j = arrSize - 1;
+        int j = 0;
+        ArrayList<String> sortedKeys = new ArrayList<String>(keysAndSize.keySet());
+        Collections.sort(sortedKeys);
 
-        for (Map.Entry<String, Integer> entry : keysAndSize.entrySet()) {
-            int size = entry.getValue();
-            map.get(entry.getKey()).sort(Comparator.naturalOrder());
+        for (String key : sortedKeys) {
+            int size = keysAndSize.get(key);
+            ingredientAndDishes.get(key).sort(Comparator.naturalOrder());
             result[j] = new String[size + 1];
             for (int i = 0; i < size; i++) {
                 if (i == 0) {
-                    result[j][i] = entry.getKey();
+                    result[j][i] = key;
                 }
-                result[j][i + 1] = map.get(entry.getKey()).get(i);
+                result[j][i + 1] = ingredientAndDishes.get(key).get(i);
             }
-            j--;
+            j++;
         }
 
         return result;
-    }
-
-    public static void printHashtable(Map<String, List<String>> map) {
-        for (Map.Entry<String, List<String>> entry : map.entrySet()) {
-            for (String s : entry.getValue()) {
-                System.out.println(entry.getKey() + " - " + s);
-            }
-        }
     }
 }

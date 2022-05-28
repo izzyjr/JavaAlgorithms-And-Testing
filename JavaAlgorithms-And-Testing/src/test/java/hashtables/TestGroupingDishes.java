@@ -17,8 +17,8 @@ public class TestGroupingDishes {
     }
 
     @Test(dataProvider = "dishes")
-    private void testMatrixElementsSum(String[][] matrix) {
-        assertEquals(GroupingDishes.groupingDishes(matrix), new String[][] {{"Cheese", "Quesadilla", "Sandwich"},
+    private void testGroupingDishes(String[][] dishes) {
+        assertEquals(GroupingDishes.groupingDishes(dishes), new String[][] {{"Cheese", "Quesadilla", "Sandwich"},
                                                                             {"Salad", "Salad", "Sandwich"},
                                                                             {"Sauce", "Pizza", "Quesadilla", "Salad"},
                                                                             {"Tomato", "Pizza", "Salad", "Sandwich"}});
