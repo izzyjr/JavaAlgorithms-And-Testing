@@ -12,7 +12,7 @@ public class TestAreFollowingPatterns {
         return new Object[][]{
                 {new String[] {"cat", "dog", "dog"}, new String[] {"a", "b", "b"}, true},
                 {new String[] {"cat", "dog", "doggy"}, new String[] {"a", "b", "b"}, false},
-                {new String[] {"aaa"}, new String[] {"aaa"}, false}
+                {new String[] {"aaa"}, new String[] {"aaa"}, true}
         };
     }
 
