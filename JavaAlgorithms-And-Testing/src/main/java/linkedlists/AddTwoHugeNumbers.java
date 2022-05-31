@@ -22,11 +22,12 @@ public class AddTwoHugeNumbers {
         long num = Long.parseLong(aSum.toString()) + Long.parseLong(bSum.toString());
         String stringNum = String.valueOf(num);
         ListNode<Integer> head = new ListNode<>(0);
+        ListNode<Integer> pointer = head;
+
         int count = 1;
         String fourDigits = "";
 
         for (int i = 0; i < stringNum.length(); i++) {
-            System.out.println(stringNum.charAt(i));
             if (count <= 4) {
                 if (fourDigits == "" && stringNum.charAt(i) == '0') {
                     i++;
@@ -35,11 +36,10 @@ public class AddTwoHugeNumbers {
                 }
                 count++;
             } else {
-                System.out.println("we made it here: " + fourDigits);
-                head.value = Integer.parseInt(fourDigits);
+                pointer.value = Integer.parseInt(fourDigits);
                 fourDigits = "";
-                head.next = new ListNode<>(0);
-                head = head.next;
+                pointer.next = new ListNode<>(0);
+                pointer = pointer.next;
                 count = 1;
             }
         }
