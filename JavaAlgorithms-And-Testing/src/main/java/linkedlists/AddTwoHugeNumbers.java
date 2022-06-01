@@ -6,20 +6,33 @@ public class AddTwoHugeNumbers {
 
         String aSum = "";
         String bSum = "";
+        String addLeadingZeros = "";
+        ListNode<Integer> pointerA = a;
+        ListNode<Integer> pointerB = b;
 
-        while (a != null || b != null) {
-            if (a != null) {
-                aSum += a.value.toString();
-                a = a.next;
+
+        while (pointerA != null || pointerB != null) {
+            if (pointerA != null) {
+                if (pointerA != a) {
+                    addLeadingZeros = new String(new char[4 - pointerA.value.toString().length()]).replace('\0', '0');
+                }
+                aSum += addLeadingZeros + pointerA.value.toString();
+                pointerA = pointerA.next;
             }
 
-            if (b != null) {
-                bSum += b.value.toString();
-                b = b.next;
+            if (pointerB != null) {
+                if (pointerB != b) {
+                    addLeadingZeros = new String(new char[4 - pointerB.value.toString().length()]).replace('\0', '0');
+                }
+                bSum += addLeadingZeros + pointerB.value.toString();
+                pointerB = pointerB.next;
             }
         }
 
         long num = Long.parseLong(aSum.toString()) + Long.parseLong(bSum.toString());
+
+        System.out.println(num);
+
         String stringNum = String.valueOf(num);
         ListNode<Integer> head = new ListNode<>(0);
         ListNode<Integer> pointer = head;
