@@ -11,7 +11,6 @@ public class AreSimilar {
         int length = a.length;
         int count = 0;
         int negCount = 0;
-        int duplicate = 0;
 
         for (int i = 0; i < length; i++) {
             if (a[i] != b[i]) {
@@ -27,7 +26,6 @@ public class AreSimilar {
                 count++;
             }
         }
-        System.out.println(count);
         return length == count && negCount <=2;
     }
 }
