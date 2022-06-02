@@ -29,4 +29,32 @@ public class AreSimilar {
         }
         return nonMatchingInts[0] == nonMatchingInts[3] && nonMatchingInts[1] == nonMatchingInts[2];
     }
+
+    // first attempt solution
+    public static boolean areSimilar0(int[] a, int[] b) {
+
+        int sumA = 0;
+        int sumB = 0;
+        int sameCounter = 0;
+        int parallelCounter = 0;
+        int arrayLength = a.length;
+
+        for (int i = 0; i < arrayLength; i++) {
+            sumA += a[i];
+            sumB += b[i];
+            if (a[i] != b[i]) {
+                parallelCounter++;
+            }
+            for (int j = 0; j < arrayLength; j++) {
+                if (a[i] == b[j]) {
+                    sameCounter++;
+                    j = arrayLength;
+                }
+            }
+        }
+        if (sameCounter == arrayLength && parallelCounter <= 2 && sumA == sumB) {
+            return true;
+        }
+        return false;
+    }
 }
