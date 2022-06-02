@@ -13,6 +13,7 @@ public class TestAreSimilar {
                 {new int[] {2, 3, 1}, new int[] {1, 3, 2}, true},
                 {new int[] {1, 2, 3}, new int[] {1, 10, 2}, false},
                 {new int[] {832, 998, 148, 570, 533, 561, 894, 147, 455, 279}, new int[] {832, 998, 148, 570, 533, 561, 455, 147, 894, 279}, true},
+                {new int[] {2, 3, 9}, new int[] {10, 3, 2}, false},
         };
     }
 
