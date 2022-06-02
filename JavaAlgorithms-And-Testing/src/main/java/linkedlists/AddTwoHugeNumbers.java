@@ -1,64 +1,45 @@
 package linkedlists;
 
+import java.util.Stack;
+
 public class AddTwoHugeNumbers {
 
     public static ListNode<Integer> addTwoHugeNumbers(ListNode<Integer> a, ListNode<Integer> b) {
 
-        String aSum = "";
-        String bSum = "";
-        String addLeadingZeros = "";
         ListNode<Integer> pointerA = a;
         ListNode<Integer> pointerB = b;
+        Stack<Integer> stackA = new Stack<>();
+        Stack<Integer> stackB = new Stack<>();
 
 
         while (pointerA != null || pointerB != null) {
             if (pointerA != null) {
-                if (pointerA != a) {
-                    addLeadingZeros = new String(new char[4 - pointerA.value.toString().length()]).replace('\0', '0');
-                }
-                aSum += addLeadingZeros + pointerA.value.toString();
+                stackA.push(pointerA.value);
                 pointerA = pointerA.next;
             }
-
             if (pointerB != null) {
-                if (pointerB != b) {
-                    addLeadingZeros = new String(new char[4 - pointerB.value.toString().length()]).replace('\0', '0');
-                }
-                bSum += addLeadingZeros + pointerB.value.toString();
+                stackB.push(pointerB.value);
                 pointerB = pointerB.next;
             }
         }
 
-        long num = Long.parseLong(aSum.toString()) + Long.parseLong(bSum.toString());
-
-        System.out.println(num);
-
-        String stringNum = String.valueOf(num);
         ListNode<Integer> head = new ListNode<>(0);
-        ListNode<Integer> pointer = head;
+        Integer aPop = 0;
+        Integer bPop = 0;
 
-        int count = 0;
-        String fourDigits = "";
-
-        for (int i = 0; i < stringNum.length(); i++) {
-            if (count < 4) {
-                if (fourDigits == "" && stringNum.charAt(i) == '0') {
-                    i++;
-                    count++;
-                } else {
-                    fourDigits += stringNum.charAt(i);
-                    count++;
-                }
-                if (count == 4) {
-                    pointer.value = Integer.parseInt(fourDigits);
-                    fourDigits = "";
-                    pointer.next = new ListNode<>(0);
-                    pointer = pointer.next;
-                    count = 0;
-                }
+        while (!stackA.isEmpty() || !stackB.isEmpty()) {
+            if (!stackA.isEmpty()) {
+                aPop = stackA.pop();
             }
+            if (!stackB.isEmpty()) {
+                bPop = stackB.pop();
+            }
+            head.value = aPop + bPop;
+            ListNode<Integer> previous = new ListNode<>(0);
+            previous.next = head;
+            head = previous;
         }
 
-        return head;
+        return head.next;
     }
 }
