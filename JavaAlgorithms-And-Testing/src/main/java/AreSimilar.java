@@ -11,18 +11,23 @@ public class AreSimilar {
         int length = a.length;
         int count = 0;
         int negCount = 0;
+        int duplicate = 0;
 
         for (int i = 0; i < length; i++) {
-            for (int j = 0; j < length; j++) {
-                if (i == j && b[i] != a[j]) {
-                    negCount++;
+            if (a[i] != b[i]) {
+                negCount++;
+                int search = -1;
+                while (++search < length) {
+                    if (b[i] == a[search]) {
+                        count++;
+                        break;
+                    }
                 }
-                if (b[i] == a[j]) {
-                    count++;
-                }
+            } else {
+                count++;
             }
         }
-
-        return count == length && negCount <= 2;
+        System.out.println(count);
+        return length == count && negCount <=2;
     }
 }
