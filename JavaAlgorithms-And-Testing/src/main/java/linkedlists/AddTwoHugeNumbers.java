@@ -49,8 +49,8 @@ public class AddTwoHugeNumbers {
                 head.value = mod;
                 carry = sum/10000;
             } else {
-                head.value = 0;
-                carry = mod;
+                head.value = mod;
+                carry = sum/10000;
             }
 
             ListNode<Integer> previous = new ListNode<>(0);

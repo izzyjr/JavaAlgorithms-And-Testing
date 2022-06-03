@@ -13,7 +13,8 @@ public class TestAddTwoHugeNumbers {
     private Object[][] getData() {
         return new Object[][]{
                 {loadValues(new Integer[] {9876, 5432, 1999}), loadValues(new Integer[] {1, 8001}), loadValues(new Integer[] {9876, 5434, 0})},
-                {loadValues(new Integer[] {123, 4, 5}), loadValues(new Integer[] {100, 100, 100}), loadValues(new Integer[] {223, 104, 105})}
+                {loadValues(new Integer[] {123, 4, 5}), loadValues(new Integer[] {100, 100, 100}), loadValues(new Integer[] {223, 104, 105})},
+                {loadValues(new Integer[] {1, 2, 9999}), loadValues(new Integer[] {1002, 2, 3}), loadValues(new Integer[] {1003, 5, 2})}
         };
     }
 
