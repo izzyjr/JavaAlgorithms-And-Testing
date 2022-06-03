@@ -28,7 +28,7 @@ public class AddTwoHugeNumbers {
         Integer bPop = 0;
         Integer carry = 0;
 
-        while (!stackA.isEmpty() || !stackB.isEmpty()) {
+        while (!stackA.isEmpty() || !stackB.isEmpty() || carry != 0) {
             if (!stackA.isEmpty()) {
                 aPop = stackA.pop();
             } else {
@@ -39,16 +39,18 @@ public class AddTwoHugeNumbers {
             } else {
                 bPop = 0;
             }
-            int value = aPop + bPop + carry;
-            carry = 0;
-            if (value < 10000) {
-                head.value = value;
-            } else if (value == 10000) {
-                head.value = 0;
-                carry++;
+            int sum = (aPop + bPop + carry);
+            int mod = sum % 10000;
+
+            if (sum < 10000) {
+                head.value = mod;
+                carry = 0;
+            } else if (sum == 10000) {
+                head.value = mod;
+                carry = sum/10000;
             } else {
                 head.value = 0;
-                carry = value % 10000;
+                carry = mod;
             }
 
             ListNode<Integer> previous = new ListNode<>(0);
