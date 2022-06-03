@@ -26,15 +26,31 @@ public class AddTwoHugeNumbers {
         ListNode<Integer> head = new ListNode<>(0);
         Integer aPop = 0;
         Integer bPop = 0;
+        Integer carry = 0;
 
         while (!stackA.isEmpty() || !stackB.isEmpty()) {
             if (!stackA.isEmpty()) {
                 aPop = stackA.pop();
+            } else {
+                aPop = 0;
             }
             if (!stackB.isEmpty()) {
                 bPop = stackB.pop();
+            } else {
+                bPop = 0;
             }
-            head.value = aPop + bPop;
+            int value = aPop + bPop + carry;
+            carry = 0;
+            if (value < 10000) {
+                head.value = value;
+            } else if (value == 10000) {
+                head.value = 0;
+                carry++;
+            } else {
+                head.value = 0;
+                carry = value % 10000;
+            }
+
             ListNode<Integer> previous = new ListNode<>(0);
             previous.next = head;
             head = previous;
