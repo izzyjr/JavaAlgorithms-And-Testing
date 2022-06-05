@@ -13,22 +13,10 @@ public class PalindromeRearranging {
             if (!repeats.containsKey(key)) {
                 repeats.put(key, 1);
             } else {
-                repeats.put(key, repeats.get(key) + 1);
+                repeats.remove(key);
             }
         }
-
-        int count = 0;
-
-        for (Integer repeated : repeats.values()) {
-            if (repeated % 2 != 0) {
-                count++;
-            }
-            if (count > 1) {
-                return false;
-            }
-        }
-
-        return true;
+        return repeats.size() <= 1;
     }
 
     // first attempt solution
