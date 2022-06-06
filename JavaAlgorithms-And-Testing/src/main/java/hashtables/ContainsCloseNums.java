@@ -7,19 +7,19 @@ public class ContainsCloseNums {
     public static boolean containsCloseNums(int[] nums, int k) {
 
         int length = nums.length;
-        Map<Integer, List<Integer>> numsMap = new HashMap<>();
+        Map<Integer, List<Integer>> hashMapNums = new HashMap<>();
 
         for (int i = 0; i < length; i++) {
-            if (!numsMap.containsKey(nums[i])) {
-                numsMap.put(nums[i], new ArrayList<>(List.of(i)));
+            if (!hashMapNums.containsKey(nums[i])) {
+                hashMapNums.put(nums[i], new ArrayList<>(List.of(i)));
             } else {
-                numsMap.get(nums[i]).add(i);
+                hashMapNums.get(nums[i]).add(i);
             }
         }
 
         int absoluteDifference = 0;
 
-        for (List<Integer> listNums : numsMap.values()) {
+        for (List<Integer> listNums : hashMapNums.values()) {
             if (listNums.size() > 1) {
                 for (int i = 0; i < listNums.size(); i++) {
                     if ((i + 1) < listNums.size()) {
@@ -29,7 +29,7 @@ public class ContainsCloseNums {
                             absoluteDifference = listNums.get(i) - listNums.get(i - 1);
                         }
                     }
-                    if (absoluteDifference == k) {
+                    if (absoluteDifference == k || absoluteDifference == 1) {
                         return true;
                     }
                 }
