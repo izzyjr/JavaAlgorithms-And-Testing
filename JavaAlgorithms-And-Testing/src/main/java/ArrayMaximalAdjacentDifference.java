@@ -21,4 +21,29 @@ public class ArrayMaximalAdjacentDifference {
 
         return max;
     }
+
+    // first attempt solution
+    public static int arrayMaximalAdjacentDifference0(int[] inputArray) {
+
+        int length = inputArray.length;
+        int maxDifference = 0;
+
+        for (int i = 0; i < length; i++) {
+            if ((i + 1) < length) {
+                int a = inputArray[i] - inputArray[i + 1];
+                int b = inputArray[i + 1] - inputArray[i];
+                if (a > b) {
+                    if (a > maxDifference) {
+                        maxDifference = a;
+                    }
+                } else {
+                    if (b > maxDifference) {
+                        maxDifference = b;
+                    }
+                }
+            }
+        }
+
+        return maxDifference;
+    }
 }
