@@ -13,7 +13,8 @@ public class TestContainsCloseNums {
                 {new int[] {0, 1, 2, 3, 5, 2}, 3, true},
                 {new int[] {1, 2, 1}, 0, false},
                 {new int[] {99, 99}, 2, true},
-                {new int[] {2, 2}, 3, true}
+                {new int[] {2, 2}, 3, true},
+                {new int[] {1, 2, 3, 1, 1, 2, 3}, 0, false}
         };
     }
 
