@@ -1,6 +1,9 @@
 package hashtables;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 public class ContainsCloseNums {
 
@@ -29,7 +32,7 @@ public class ContainsCloseNums {
                             absoluteDifference = listNums.get(i) - listNums.get(i - 1);
                         }
                     }
-                    if (absoluteDifference == k || absoluteDifference == 1) {
+                    if (absoluteDifference <= k) {
                         return true;
                     }
                 }
