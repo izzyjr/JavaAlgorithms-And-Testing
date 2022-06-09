@@ -12,6 +12,8 @@ public class StrStr {
                     if (++iterator < s.length()) {
                         if (x.charAt(j) == s.charAt(iterator)) {
                             count++;
+                        } else {
+                            j = x.length();
                         }
                     }
                 }
