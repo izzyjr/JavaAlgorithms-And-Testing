@@ -32,4 +32,29 @@ public class AvoidObstacles {
         }
         return min;
     }
+
+    // first attempt solution
+    public static int avoidObstacles0(int[] inputArray) {
+
+        int commonNumber = 2;
+        int counter = 0;
+        boolean flag = false;
+
+        while(!flag) {
+
+            for (int i = 0; i < inputArray.length; i++) {
+                if (inputArray[i] % commonNumber != 0) {
+                    counter++;
+                }
+            }
+
+            if (counter == inputArray.length) {
+                flag = true;
+            } else {
+                counter = 0;
+                commonNumber++;
+            }
+        }
+        return commonNumber;
+    }
 }
