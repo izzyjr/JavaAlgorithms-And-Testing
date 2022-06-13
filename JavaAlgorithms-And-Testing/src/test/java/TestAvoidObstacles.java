@@ -8,7 +8,9 @@ public class TestAvoidObstacles {
     @DataProvider(name="inputOutput")
     private Object[][] getData() {
         return new Object[][]{
-                {new int[] {5, 3, 6, 7, 9}, 4}
+                {new int[] {5, 3, 6, 7, 9}, 4},
+                {new int[] {1000, 999}, 6},
+                {new int[] {19, 32, 11, 23}, 3}
         };
     }
 
