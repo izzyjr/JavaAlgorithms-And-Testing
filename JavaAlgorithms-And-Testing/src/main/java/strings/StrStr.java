@@ -12,16 +12,16 @@ public class StrStr {
                     return -1;
                 }
 
-                int count = 0;
+                int count = 1;
                 int iterator = i;
                 for (int j = 1; j < x.length(); j++) {
                     if (x.charAt(j) != s.charAt(++iterator)) {
                         break;
                     }
-                    count = j;
+                    count++;
                 }
 
-                if (count == x.length() - 1) {
+                if (count == x.length()) {
                     return i;
                 }
             }
