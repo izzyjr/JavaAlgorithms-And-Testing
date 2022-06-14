@@ -6,24 +6,22 @@ public class StrStr {
 
         for (int i = 0; i < s.length(); i++) {
 
-            if ((s.length() - i) - x.length() == -1) {
-                return -1;
-            }
-
             if (s.charAt(i) == x.charAt(0)) {
-                int count = 1;
-                int iterator = i;
-                for (int j = 1; j < x.length(); j++) {
-                    if (++iterator < s.length()) {
-                        if (x.charAt(j) == s.charAt(iterator)) {
-                            count++;
-                        } else {
-                            j = x.length();
-                        }
-                    }
+
+                if ((s.length() - i) < x.length()) {
+                    return -1;
                 }
 
-                if (count == x.length()) {
+                int count = 0;
+                int iterator = i;
+                for (int j = 1; j < x.length(); j++) {
+                    if (x.charAt(j) != s.charAt(++iterator)) {
+                        break;
+                    }
+                    count = j;
+                }
+
+                if (count == x.length() - 1) {
                     return i;
                 }
             }
