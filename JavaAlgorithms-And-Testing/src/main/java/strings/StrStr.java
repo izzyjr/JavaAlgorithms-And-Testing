@@ -10,6 +10,8 @@ public class StrStr {
 
                 if ((s.length() - i) < x.length()) {
                     return -1;
+                } else if (x.length() == 1) {
+                    return i;
                 }
 
                 int count = 1;
