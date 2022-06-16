@@ -4,26 +4,31 @@ public class StrStr {
 
     public static int strStr(String s, String x) {
 
-        for (int i = 0; i < s.length(); i++) {
+        int sLength = s.length();
+        int xLength = x.length();
 
-            if (s.charAt(i) == x.charAt(0)) {
+        for (int i = 0; i < sLength; i++) {
 
-                if ((s.length() - i) < x.length()) {
-                    return -1;
-                } else if (x.length() == 1) {
+            if ((sLength - i) < xLength) {
+                return -1;
+            }
+
+            if (s.charAt(i) == x.charAt(0) && s.charAt(i + xLength - 1) == x.charAt(xLength - 1)) {
+
+                if (xLength == 1) {
                     return i;
                 }
 
-                int count = 1;
+                int count = 2;
                 int iterator = i;
-                for (int j = 1; j < x.length(); j++) {
+                for (int j = 1; j < xLength - 1; j++) {
                     if (x.charAt(j) != s.charAt(++iterator)) {
                         break;
                     }
                     count++;
                 }
 
-                if (count == x.length()) {
+                if (count == xLength) {
                     return i;
                 }
             }

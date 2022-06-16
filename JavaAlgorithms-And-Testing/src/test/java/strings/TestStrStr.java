@@ -12,7 +12,9 @@ public class TestStrStr {
         return new Object[][]{
                 {"sst", "st", 1},
                 {"CodefightsIsAwesome", "IsA", 10},
-                {"aBcDefghaBcdEFgh", "ghb", -1}
+                {"aBcDefghaBcdEFgh", "ghb", -1},
+                {"ATErUUeUkVFVNfxfUKtntOErKmZLUpWpHRASdxjUhzzxygmnNnKabPPgPqyvCLSCZObaNNGCXQssfEEDDJIPBwtkMmTniKapBlrd",
+                        "vCLSCZObaNNGCXQssfEEDDJIPBwtkMmTniKa", 59}
         };
     }
 
