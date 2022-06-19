@@ -10,7 +10,8 @@ public class TestClassifyStrings {
     @DataProvider(name="stringsAndResult")
     private Object[][] getData() {
         return new Object[][]{
-                {"aeu", "bad"}
+                {"aeu", "bad"},
+                {"a?u", "mixed"}
         };
     }
 

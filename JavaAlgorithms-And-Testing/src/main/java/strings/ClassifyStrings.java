@@ -13,21 +13,27 @@ public class ClassifyStrings {
         vowelsMap.put('i', 'i');
         vowelsMap.put('o', 'o');
         vowelsMap.put('u', 'u');
-        vowelsMap.put('?', '?');
 
         int length = s.length();
         int vowels = 0;
         int consonants = 0;
+        int mixed = 0;
 
         for (int i = 0; i < length; i++) {
+
             if (vowelsMap.containsKey(s.charAt(i))) {
                 vowels++;
                 consonants = 0;
+            } else if (s.charAt(i) == '?') {
+                mixed++;
             } else {
                 consonants++;
                 vowels = 0;
             }
-            if (vowels == 3 || consonants == 5) {
+
+            if (vowels > 1 && mixed > 0 || consonants > 3 && mixed > 0) {
+                return "mixed";
+            } else if (vowels == 3 || consonants == 5) {
                 return "bad";
             }
         }
