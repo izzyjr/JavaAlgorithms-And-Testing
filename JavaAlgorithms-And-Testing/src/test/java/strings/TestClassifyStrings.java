@@ -11,7 +11,8 @@ public class TestClassifyStrings {
     private Object[][] getData() {
         return new Object[][]{
                 {"aeu", "bad"},
-                {"a?u", "mixed"}
+                {"a?u", "mixed"},
+                {"typ?asdf?relkhfd", "bad"},
         };
     }
 

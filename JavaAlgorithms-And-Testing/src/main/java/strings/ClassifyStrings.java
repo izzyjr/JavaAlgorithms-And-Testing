@@ -26,12 +26,18 @@ public class ClassifyStrings {
                 consonants = 0;
             } else if (s.charAt(i) == '?') {
                 mixed++;
+                vowels++;
+                consonants++;
             } else {
                 consonants++;
                 vowels = 0;
             }
 
-            if (vowels > 1 && mixed > 0 || consonants > 3 && mixed > 0) {
+            if (consonants == 0 && vowels == 1 || consonants == 1 && vowels == 0) {
+                mixed = 0;
+            }
+
+            if (vowels > 2 && mixed > 0 || consonants > 4 && mixed > 0) {
                 return "mixed";
             } else if (vowels == 3 || consonants == 5) {
                 return "bad";
