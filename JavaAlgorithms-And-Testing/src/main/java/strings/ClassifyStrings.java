@@ -14,6 +14,33 @@ public class ClassifyStrings {
         vowelsMap.put('o', 'o');
         vowelsMap.put('u', 'u');
 
+        if (s.contains("?")) {
+            String vowel = classify(s, vowelsMap, 'a');
+            String cons = classify(s, vowelsMap, 'b');
+            if (!vowel.equals(cons)) {
+                return "mixed";
+            } else {
+                return vowel;
+            }
+        }
+
+        return classify(s, vowelsMap);
+    }
+
+    private static String classify(String s, Map<Character, Character> map) {
+
+        return shared(s, map);
+    }
+
+    private static String classify(String s, Map<Character, Character> map, char x) {
+
+        s = s.replace('?', x);
+
+        return shared(s, map);
+    }
+
+    private static String shared(String s, Map<Character, Character> map) {
+
         int length = s.length();
         int vowels = 0;
         int consonants = 0;
@@ -21,25 +48,15 @@ public class ClassifyStrings {
 
         for (int i = 0; i < length; i++) {
 
-            if (vowelsMap.containsKey(s.charAt(i))) {
+            if (map.containsKey(s.charAt(i))) {
                 vowels++;
                 consonants = 0;
-            } else if (s.charAt(i) == '?') {
-                mixed++;
-                vowels++;
-                consonants++;
             } else {
                 consonants++;
                 vowels = 0;
             }
 
-            if (consonants == 0 && vowels == 1 || consonants == 1 && vowels == 0) {
-                mixed = 0;
-            }
-
-            if (vowels > 2 && mixed > 0 || consonants > 4 && mixed > 0) {
-                return "mixed";
-            } else if (vowels == 3 || consonants == 5) {
+            if (vowels == 3 || consonants == 5) {
                 return "bad";
             }
         }
