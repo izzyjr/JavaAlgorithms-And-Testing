@@ -14,7 +14,8 @@ public class TestClassifyStrings {
                 {"a?u", "mixed"},
                 {"typ?asdf?relkhfd", "bad"},
                 {"aatbbbb", "bad"},
-                {"?io", "mixed"}
+                {"?io", "mixed"},
+                {"xnifpse???bggpirro", "mixed"},
         };
     }
 

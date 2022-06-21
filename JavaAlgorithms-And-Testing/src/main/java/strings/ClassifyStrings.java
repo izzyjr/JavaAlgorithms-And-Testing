@@ -15,8 +15,8 @@ public class ClassifyStrings {
         vowelsMap.put('u', 'u');
 
         if (s.contains("?")) {
-            String vowel = classify(s, vowelsMap, 'a');
-            String cons = classify(s, vowelsMap, 'b');
+            String vowel = classify(s.replace('?', 'a'), vowelsMap);
+            String cons = classify(s.replace('?', 'b'), vowelsMap);
             if (!vowel.equals(cons)) {
                 return "mixed";
             } else {
@@ -28,18 +28,6 @@ public class ClassifyStrings {
     }
 
     private static String classify(String s, Map<Character, Character> map) {
-
-        return shared(s, map);
-    }
-
-    private static String classify(String s, Map<Character, Character> map, char x) {
-
-        s = s.replace('?', x);
-
-        return shared(s, map);
-    }
-
-    private static String shared(String s, Map<Character, Character> map) {
 
         int length = s.length();
         int vowels = 0;
@@ -56,7 +44,7 @@ public class ClassifyStrings {
                 vowels = 0;
             }
 
-            if (vowels == 3 || consonants == 5) {
+            if (vowels >= 3 || consonants >= 5) {
                 return "bad";
             }
         }
