@@ -15,8 +15,8 @@ public class ClassifyStrings {
         vowelsMap.put('u', 'u');
 
         if (s.contains("?")) {
-            String vowel = classify(s.replace('?', 'a'), vowelsMap);
-            String cons = classify(s.replace('?', 'b'), vowelsMap);
+            String vowel = classifyStrings(s.replaceFirst("\\?", "a"));
+            String cons = classifyStrings(s.replaceFirst("\\?", "b"));
             if (!vowel.equals(cons)) {
                 return "mixed";
             } else {
@@ -32,7 +32,6 @@ public class ClassifyStrings {
         int length = s.length();
         int vowels = 0;
         int consonants = 0;
-        int mixed = 0;
 
         for (int i = 0; i < length; i++) {
 
