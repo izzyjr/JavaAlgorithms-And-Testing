@@ -11,7 +11,8 @@ public class TestRemoveDigit {
     private Object[][] getData() {
         return new Object[][]{
                 {"123", '3', "12"},
-                {"1231", '1', "231"}
+                {"1231", '1', "231"},
+                {"133235", '3', "13325"}
         };
     }
 
