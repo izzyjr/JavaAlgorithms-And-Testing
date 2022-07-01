@@ -15,13 +15,41 @@ public class IsPathCrossing {
 
         for (int i = 0; i < path.length(); i++) {
             if (path.charAt(i) == 'N') {
-                
+                currently[0] += 1;
+                if (coordinates.containsKey(currently[0])) {
+                    if (coordinates.get(currently[0]).contains(currently[1])) {
+                        return true;
+                    }
+                } else {
+                    coordinates.put(currently[0], new ArrayList<>(List.of(currently[1])));
+                }
             } else if (path.charAt(i) == 'S') {
-
+                currently[0] -= 1;
+                if (coordinates.containsKey(currently[0])) {
+                    if (coordinates.get(currently[0]).contains(currently[1])) {
+                        return true;
+                    }
+                } else {
+                    coordinates.put(currently[0], new ArrayList<>(List.of(currently[1])));
+                }
             } else if (path.charAt(i) == 'W') {
-
+                currently[1] -= 1;
+                if (coordinates.containsKey(currently[0])) {
+                    if (coordinates.get(currently[0]).contains(currently[1])) {
+                        return true;
+                    } else {
+                        coordinates.put(currently[0], new ArrayList<>(List.of(currently[1])));
+                    }
+                }
             } else if (path.charAt(i) == 'E') {
-
+                currently[1] += 1;
+                if (coordinates.containsKey(currently[0])) {
+                    if (coordinates.get(currently[0]).contains(currently[1])) {
+                        return true;
+                    } else {
+                        coordinates.put(currently[0], new ArrayList<>(List.of(currently[1])));
+                    }
+                }
             }
         }
 
