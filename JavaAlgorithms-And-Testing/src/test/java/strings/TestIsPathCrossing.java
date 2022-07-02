@@ -10,7 +10,9 @@ public class TestIsPathCrossing {
     @DataProvider(name="stringsAndResult")
     private Object[][] getData() {
         return new Object[][]{
-                {"NES", false}
+                {"NES", false},
+                {"NESWW", true},
+                {"ESSWNN", true}
         };
     }
 
