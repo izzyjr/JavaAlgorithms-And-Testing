@@ -12,7 +12,8 @@ public class TestIsPathCrossing {
         return new Object[][]{
                 {"NES", false},
                 {"NESWW", true},
-                {"ESSWNN", true}
+                {"ESSWNN", true},
+                {"ENNWSW", false}
         };
     }
 
