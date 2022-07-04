@@ -8,9 +8,8 @@ public class CanConstruct {
             for (int j = 0; j < magazine.length(); j++) {
                 if (ransomNote.charAt(i) == magazine.charAt(j)) {
                     count++;
-                    if (i < ransomNote.length() - 1) {
-                        i++;
-                    }
+                    magazine = magazine.replaceFirst(String.valueOf(magazine.charAt(j)), "");
+                    break;
                 }
             }
         }

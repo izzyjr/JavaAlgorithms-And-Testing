@@ -10,7 +10,8 @@ public class TestCanConstruct {
         return new Object[][]{
                 {"a", "b", false},
                 {"aa", "ab", false},
-                {"aa", "aab", true}
+                {"aa", "aab", true},
+                {"aab", "baa", true}
         };
     }
 
