@@ -1,5 +1,6 @@
 package arrays;
 
+import java.math.BigInteger;
 import java.util.Arrays;
 
 public class PlusOne {
@@ -8,8 +9,9 @@ public class PlusOne {
 
         String strValue = Arrays.toString(digits).replaceAll("[,\\[\\]\\s]", "");
         int strValueLength = strValue.length();
-        long longValue = Long.parseLong(strValue) + 1;
-        String strValuePlusOne = Long.toString(longValue);
+        BigInteger bigIntValue = new BigInteger(strValue);
+        bigIntValue = bigIntValue.add(BigInteger.valueOf(1));
+        String strValuePlusOne = bigIntValue.toString();
         int valuePlusOneLength = strValuePlusOne.length();
 
         int[] digitsModified = new int[valuePlusOneLength];
