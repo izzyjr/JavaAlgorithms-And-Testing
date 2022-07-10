@@ -10,7 +10,8 @@ public class TestMissingNumber {
     @DataProvider(name="inputOutput")
     private Object[][] getData() {
         return new Object[][]{
-                {new int[] {3,0,1}, 2}
+                {new int[] {3,0,1}, 2},
+                {new int[] {9,6,4,2,3,5,7,0,1}, 8},
         };
     }
 
