@@ -8,13 +8,17 @@ public class MissingNumber {
 
         insertionSort(nums);
         int result = 0;
-        int n = nums.length;
+        int length = nums.length;
 
-        for (int i = 1; i < nums.length; i++) {
+        for (int i = 0; i < length; i++) {
             if (nums[i] != i) {
                 result = i;
                 break;
             }
+        }
+
+        if (nums[0] == 0 && result == 0) {
+            result = length;
         }
 
         return result;
