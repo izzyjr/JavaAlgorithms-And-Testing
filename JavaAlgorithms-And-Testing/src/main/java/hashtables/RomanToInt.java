@@ -21,13 +21,13 @@ public class RomanToInt {
         for (int i = 0; i < s.length(); i++) {
             if (s.charAt(i) == 'I' || s.charAt(i) == 'X' || s.charAt(i) == 'C') {
                 if (i + 1 < s.length()) {
-                    if (s.charAt(i) == 'I' && s.charAt(i + 1) == 'V' || s.charAt(i + 1) == 'X') {
+                    if (s.charAt(i) == 'I' && s.charAt(i + 1) == 'V' || s.charAt(i) == 'I' && s.charAt(i + 1) == 'X') {
                         result += map.get(s.charAt(i + 1)) - map.get(s.charAt(i));
                         i++;
-                    } else if (s.charAt(i) == 'X' && s.charAt(i + 1) == 'L' || s.charAt(i + 1) == 'C') {
+                    } else if (s.charAt(i) == 'X' && s.charAt(i + 1) == 'L' || s.charAt(i) == 'X' && s.charAt(i + 1) == 'C') {
                         result += map.get(s.charAt(i + 1)) - map.get(s.charAt(i));
                         i++;
-                    } else if (s.charAt(i) == 'C' && s.charAt(i + 1) == 'D' || s.charAt(i + 1) == 'M') {
+                    } else if (s.charAt(i) == 'C' && s.charAt(i + 1) == 'D' || s.charAt(i) == 'C' && s.charAt(i + 1) == 'M') {
                         result += map.get(s.charAt(i + 1)) - map.get(s.charAt(i));
                         i++;
                     } else {

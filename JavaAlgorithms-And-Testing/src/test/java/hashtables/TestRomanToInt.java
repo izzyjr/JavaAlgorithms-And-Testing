@@ -14,6 +14,8 @@ public class TestRomanToInt {
                 {"LVIII", 58},
                 {"MCMXCIV", 1994},
                 {"DIV", 504},
+                {"DCXVII", 617},
+                {"DCXXVII", 627},
         };
     }
 
