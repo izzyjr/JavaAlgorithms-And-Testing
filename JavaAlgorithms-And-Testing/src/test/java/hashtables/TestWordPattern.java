@@ -10,7 +10,8 @@ public class TestWordPattern {
     @DataProvider(name="inputOutput")
     private Object[][] getData() {
         return new Object[][]{
-                {"abba", "dog cat cat dog", true}
+                {"abba", "dog cat cat dog", true},
+                {"abba", "dog dog dog dog", false}
         };
     }
 

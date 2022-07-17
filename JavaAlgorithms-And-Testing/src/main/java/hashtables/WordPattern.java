@@ -1,6 +1,9 @@
 package hashtables;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
 
 public class WordPattern {
 
@@ -8,8 +11,9 @@ public class WordPattern {
 
         ArrayList<String> words = new ArrayList<>();
         String word = "";
+        int sLength = s.length();
 
-        for (int i = 0; i < s.length(); i++) {
+        for (int i = 0; i < sLength; i++) {
             if (s.charAt(i) != ' ') {
                 word += s.charAt(i);
             } else {
@@ -20,6 +24,19 @@ public class WordPattern {
 
         words.add(word);
 
-        return false;
+        int patternLength = pattern.length();
+        Map<Character, String> map = new HashMap<>();
+
+        for (int j = 0; j < patternLength; j++) {
+            if (map.containsKey(pattern.charAt(j))) {
+                if (!Objects.equals(map.get(pattern.charAt(j)), words.get(j))) {
+                    return false;
+                }
+            } else {
+                map.put(pattern.charAt(j), words.get(j));
+            }
+        }
+
+        return true;
     }
 }
