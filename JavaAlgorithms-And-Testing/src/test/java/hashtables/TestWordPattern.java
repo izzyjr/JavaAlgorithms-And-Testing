@@ -11,7 +11,10 @@ public class TestWordPattern {
     private Object[][] getData() {
         return new Object[][]{
                 {"abba", "dog cat cat dog", true},
-                {"abba", "dog dog dog dog", false}
+                {"abba", "dog dog dog dog", false},
+                {"abba", "dog cat cat fish", false},
+                {"aaa", "aa aa aa aa", false},
+                {"aaba", "a a b a", true}
         };
     }
 

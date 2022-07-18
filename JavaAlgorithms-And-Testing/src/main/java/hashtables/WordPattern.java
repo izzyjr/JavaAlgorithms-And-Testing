@@ -3,6 +3,7 @@ package hashtables;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Objects;
 
 public class WordPattern {
 
@@ -23,16 +24,20 @@ public class WordPattern {
 
         words.add(word);
 
+        if (words.size() != pattern.length()) {
+            return false;
+        }
+
         int patternLength = pattern.length();
-        Map<String, Character> map = new HashMap<>();
+        Map<Character, String> map = new HashMap<>();
 
         for (int j = 0; j < patternLength; j++) {
-            if (map.containsKey(words.get(j))) {
-                if (map.get(words.get(j)) != pattern.charAt(j)) {
+            if (map.containsKey(pattern.charAt(j)) || map.containsValue(words.get(j))) {
+                if (!Objects.equals(map.get(pattern.charAt(j)), words.get(j))) {
                     return false;
                 }
             } else {
-                map.put(words.get(j), pattern.charAt(j));
+                map.put(pattern.charAt(j), words.get(j));
             }
         }
 
