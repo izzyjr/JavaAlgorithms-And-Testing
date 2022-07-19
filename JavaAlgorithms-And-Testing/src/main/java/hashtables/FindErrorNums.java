@@ -7,7 +7,6 @@ public class FindErrorNums {
 
     public static int[] findErrorNums(int[] nums) {
 
-        int length = nums.length;
         Map<Integer, Integer> map = new HashMap<>();
         int[] result = new int[2];
 
@@ -19,7 +18,7 @@ public class FindErrorNums {
             }
         }
 
-        System.out.println(map.get(1));
+        int length = nums.length;
 
         for (int j = 1; j <= length; j++) {
             if (map.containsKey(j)) {
