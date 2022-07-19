@@ -11,6 +11,8 @@ public class TestFindErrorNums {
     private Object[][] getData() {
         return new Object[][]{
                 {new int[] {1, 2, 2, 4}, new int[] {2, 3}},
+                {new int[] {1, 2, 4, 4}, new int[] {4, 3}},
+                {new int[] {1, 1}, new int[] {1, 2}}
         };
     }
 
