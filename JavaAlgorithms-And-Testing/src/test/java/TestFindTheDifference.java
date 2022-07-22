@@ -9,7 +9,8 @@ public class TestFindTheDifference {
     private Object[][] getData() {
         return new Object[][]{
                 {"abcd", "abcde", 'e'},
-                {"", "y", 'y'}
+                {"", "y", 'y'},
+                {"a", "aa", 'a'}
         };
     }
 
