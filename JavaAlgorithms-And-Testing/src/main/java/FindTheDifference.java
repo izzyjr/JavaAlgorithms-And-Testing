@@ -1,3 +1,6 @@
+import java.util.HashMap;
+import java.util.Map;
+
 public class FindTheDifference {
 
     public static char findTheDifference(String s, String t) {
@@ -5,21 +8,16 @@ public class FindTheDifference {
         int tLength = t.length();
         int sLength = s.length();
         char result = 0;
+        Map<Character, Integer> map = new HashMap<>();
 
-        if (sLength == 0) {
-            return t.charAt(0);
+        for (int i = 0; i < sLength; i++) {
+            map.put(s.charAt(i), 1);
         }
 
-        for (int i = 0; i < tLength; i++) {
-            int count = 0;
-            for (int j = 0; j < sLength; j++) {
-                if (t.charAt(i) != s.charAt(j)) {
-                    count++;
-                }
-                if (count == sLength) {
-                    result = t.charAt(i);
-                    break;
-                }
+        for (int j = 0; j < tLength; j++) {
+            if (!map.containsKey(t.charAt(j))) {
+                result = t.charAt(j);
+                break;
             }
         }
 
