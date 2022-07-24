@@ -10,7 +10,10 @@ public class TestLongestPalindrome {
     @DataProvider(name="inputOutput")
     private Object[][] getData() {
         return new Object[][]{
-                {"abccccdd", 7}
+                {"abccccdd", 7},
+                {"bb", 2},
+                {"ccc", 3},
+                {"bananas", 3},
         };
     }
 
