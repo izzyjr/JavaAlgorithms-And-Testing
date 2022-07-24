@@ -13,7 +13,7 @@ public class TestLongestPalindrome {
                 {"abccccdd", 7},
                 {"bb", 2},
                 {"ccc", 3},
-                {"bananas", 3},
+                {"bananas", 5},
         };
     }
 
