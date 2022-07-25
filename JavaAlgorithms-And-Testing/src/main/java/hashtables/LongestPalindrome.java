@@ -19,7 +19,7 @@ public class LongestPalindrome {
         }
 
         int count = 0;
-        int maxOdd = 0;
+        int odd = 0;
 
         for (Map.Entry<Character, Integer> entry : map.entrySet()) {
             if (map.size() == 1) {
@@ -27,12 +27,11 @@ public class LongestPalindrome {
             } else if (entry.getValue() % 2 == 0) {
                 count += entry.getValue();
             } else {
-                if (maxOdd < entry.getValue()) {
-                    maxOdd = entry.getValue();
-                }
+                count += entry.getValue() - 1;
+                odd = 1;
             }
         }
 
-        return count + maxOdd;
+        return count + odd;
     }
 }

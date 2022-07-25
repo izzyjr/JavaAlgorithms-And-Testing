@@ -14,6 +14,9 @@ public class TestLongestPalindrome {
                 {"bb", 2},
                 {"ccc", 3},
                 {"bananas", 5},
+                {"racecarppppp", 11},
+                {"racecarpppppiii", 13},
+                {"tattarrattat", 12}
         };
     }
 
