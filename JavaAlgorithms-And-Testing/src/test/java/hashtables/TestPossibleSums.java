@@ -10,7 +10,7 @@ public class TestPossibleSums {
     @DataProvider(name="inputOutput")
     private Object[][] getData() {
         return new Object[][]{
-                {new int[] {10, 50, 100}, new int[] {10, 50, 100}, 9},
+                {new int[] {10, 50, 100}, new int[] {1, 2, 1}, 9},
         };
     }
 
