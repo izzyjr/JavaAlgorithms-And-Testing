@@ -1,5 +1,6 @@
 package hashtables;
 
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -8,25 +9,23 @@ public class PossibleSums {
     public static int possibleSums(int[] coins, int[] quantity) {
 
         int length = coins.length;
-        Map<Integer, Integer> coinQuantity = new HashMap<>();
         int arraySize = 0;
 
         for (int i = 0; i < length; i++) {
             arraySize += quantity[i];
-            coinQuantity.put(coins[i], quantity[i]);
         }
 
         int[] allCoins = new int[arraySize];
-        int i = 0;
+        int x = 0;
 
-        for (Map.Entry<Integer, Integer> entry : coinQuantity.entrySet()) {
+        for (int j = 0; j < length; j++) {
 
             int counter = 0;
 
-            while (counter < entry.getValue()) {
-                allCoins[i] = entry.getKey();
+            while (counter < quantity[j]) {
+                allCoins[x] = coins[j];
                 counter++;
-                i++;
+                x++;
             }
         }
 
