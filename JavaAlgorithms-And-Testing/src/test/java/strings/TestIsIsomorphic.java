@@ -12,7 +12,8 @@ public class TestIsIsomorphic {
         return new Object[][]{
                 {"egg", "add", true},
                 {"foo", "bar", false},
-                {"badc", "baba", false}
+                {"badc", "baba", false},
+                {"table", "!@#$%", true}
         };
     }
 

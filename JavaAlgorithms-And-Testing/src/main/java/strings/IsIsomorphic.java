@@ -1,32 +1,36 @@
 package strings;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class IsIsomorphic {
 
     public static boolean isIsomorphic(String s, String t) {
 
+        Map<Character, Character> map = new HashMap<>();
         int length = s.length();
-        String sOrder = "0";
-        String tOrder = "0";
 
-        sOrder = getOrder(s, length, sOrder);
+        for (int i = 0; i < length; i++) {
 
-        tOrder = getOrder(t, length, tOrder);
-
-        return sOrder.equals(tOrder);
-    }
-
-    private static String getOrder(String t, int length, String tOrder) {
-        for (int j = 1; j < length; j++) {
-            if (t.charAt(j - 1) == t.charAt(j)) {
-                tOrder += tOrder.charAt(j - 1);
+            if (!map.containsKey(s.charAt(i))) {
+                map.put(s.charAt(i), t.charAt(i));
             } else {
-                if (tOrder.charAt(j - 1) == '0') {
-                    tOrder += '1';
-                } else {
-                    tOrder += '0';
+                if (map.get(s.charAt(i)) != t.charAt(i)) {
+                    return false;
+                }
+            }
+
+            if (map.containsValue(t.charAt(i))) {
+                for (Map.Entry<Character, Character> entry: map.entrySet()) {
+                    if (entry.getValue() == t.charAt(i)) {
+                        if (entry.getKey() != s.charAt(i)) {
+                            return false;
+                        }
+                    }
                 }
             }
         }
-        return tOrder;
+
+        return true;
     }
 }
