@@ -12,7 +12,8 @@ public class TestSingleNumber {
         return new Object[][]{
                 {new int[] {2, 2, 3, 2}, 3},
                 {new int[] {7, 7, 7, 1, 1, 1, 6}, 6},
-                {new int[] {3, 5, 1, 3, 1, 3, 1}, 5}
+                {new int[] {3, 5, 1, 3, 1, 3, 1}, 5},
+                {new int[] {2, 1, 2, 1, 2, 1, 99}, 99}
         };
     }
 
