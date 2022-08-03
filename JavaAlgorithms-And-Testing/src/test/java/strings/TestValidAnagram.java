@@ -10,7 +10,8 @@ public class TestValidAnagram {
     @DataProvider(name="stringsAndResult")
     private Object[][] getData() {
         return new Object[][] {
-                {"anagram", "nagaram", true}
+                {"anagram", "nagaram", true},
+                {"aacc", "ccac", false}
         };
     }
 
