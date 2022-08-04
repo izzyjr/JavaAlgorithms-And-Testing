@@ -11,7 +11,8 @@ public class TestValidAnagram {
     private Object[][] getData() {
         return new Object[][] {
                 {"anagram", "nagaram", true},
-                {"aacc", "ccac", false}
+                {"aacc", "ccac", false},
+                {"riquelme", "quelmeri", true}
         };
     }
 
