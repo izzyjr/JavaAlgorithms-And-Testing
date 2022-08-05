@@ -1,24 +1,25 @@
-import java.util.HashMap;
-import java.util.Map;
-
 public class NumberOfCharactersString {
 
     public static String numberOfCharactersString(String str) {
 
-        Map<Character, Integer> map = new HashMap<>();
-
-        for (int i = 0; i < str.length(); i++) {
-            if (!map.containsKey(str.charAt(i))) {
-                map.put(str.charAt(i), 1);
-            } else {
-                map.replace(str.charAt(i), map.get(str.charAt(i)) + 1);
-            }
-        }
-
+        Character current = str.charAt(0);
         StringBuilder result = new StringBuilder();
+        int count = 1;
 
-        for (Map.Entry<Character, Integer> entry : map.entrySet()) {
-            result.append(entry.getKey()).append(entry.getValue());
+        for (int i = 1; i < str.length(); i++) {
+            if (current != str.charAt(i)) {
+                result.append(current);
+                result.append(count);
+                current = str.charAt(i);
+                count = 1;
+            } else if (current == str.charAt(i)) {
+                count++;
+            }
+
+            if (i == str.length() - 1) {
+                result.append(current);
+                result.append(count);
+            }
         }
 
         return result.toString();
