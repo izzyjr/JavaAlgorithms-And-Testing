@@ -15,12 +15,10 @@ public class NumberOfCharactersString {
             } else if (current == str.charAt(i)) {
                 count++;
             }
-
-            if (i == str.length() - 1) {
-                result.append(current);
-                result.append(count);
-            }
         }
+
+        result.append(current);
+        result.append(count);
 
         return result.toString();
     }
