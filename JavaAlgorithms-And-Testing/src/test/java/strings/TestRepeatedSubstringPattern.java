@@ -11,6 +11,10 @@ public class TestRepeatedSubstringPattern {
     private Object[][] getData() {
         return new Object[][]{
                 {"abcabcabcabc", true},
+                {"abcaabca", true},
+                {"aaaaa", true},
+                {"aba", false},
+                {"∆", false}
         };
     }
 
