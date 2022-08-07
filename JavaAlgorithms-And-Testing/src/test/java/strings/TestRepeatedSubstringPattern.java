@@ -15,7 +15,8 @@ public class TestRepeatedSubstringPattern {
                 {"aaaaa", true},
                 {"aba", false},
                 {"∆", false},
-                {"abac", false}
+                {"abac", false},
+                {"babbabbabbabbab", true},
         };
     }
 
