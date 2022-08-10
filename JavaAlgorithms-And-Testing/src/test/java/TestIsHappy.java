@@ -8,7 +8,8 @@ public class TestIsHappy {
     @DataProvider(name="inputOutput")
     private Object[][] getData() {
         return new Object[][]{
-                {19, true}
+                {19, true},
+                {2, false}
         };
     }
 
