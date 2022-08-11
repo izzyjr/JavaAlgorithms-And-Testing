@@ -1,5 +1,4 @@
-import java.util.HashMap;
-import java.util.Map;
+import java.util.HashSet;
 
 public class IsHappy {
 
@@ -8,9 +7,10 @@ public class IsHappy {
         String num = Integer.toString(n);
         int squared;
         int sum = 0;
-        Map<Integer, Integer> map = new HashMap<>();
+        HashSet<Integer> set = new HashSet<>();
+        boolean flag = true;
 
-        while (!map.containsKey(sum)) {
+        while (flag || num.equals("1")) {
 
             for (int i = 0; i < num.length(); i++) {
                 squared = Integer.parseInt(String.valueOf(num.charAt(i)));
@@ -18,13 +18,10 @@ public class IsHappy {
                 sum += squared;
             }
 
-            if (!map.containsKey(sum)) {
-                map.put(sum, 1);
-            } else {
-                return false;
-            }
+            flag = set.add(sum);
+            num = Integer.toString(sum);
         }
 
-        return true;
+        return set.contains(1);
     }
 }
