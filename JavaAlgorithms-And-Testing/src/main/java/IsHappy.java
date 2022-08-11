@@ -1,3 +1,6 @@
+import java.util.HashMap;
+import java.util.Map;
+
 public class IsHappy {
 
     public static boolean isHappy(int n) {
@@ -5,13 +8,23 @@ public class IsHappy {
         String num = Integer.toString(n);
         int squared;
         int sum = 0;
+        Map<Integer, Integer> map = new HashMap<>();
 
-        for (int i = 0; i < num.length(); i++) {
-            squared = Integer.parseInt(String.valueOf(num.charAt(i)));
-            squared *= squared;
-            sum += squared;
+        while (!map.containsKey(sum)) {
+
+            for (int i = 0; i < num.length(); i++) {
+                squared = Integer.parseInt(String.valueOf(num.charAt(i)));
+                squared *= squared;
+                sum += squared;
+            }
+
+            if (!map.containsKey(sum)) {
+                map.put(sum, 1);
+            } else {
+                return false;
+            }
         }
 
-        return sum == 1;
+        return true;
     }
 }

@@ -9,7 +9,8 @@ public class TestIsHappy {
     private Object[][] getData() {
         return new Object[][]{
                 {19, true},
-                {2, false}
+                {2, false},
+                {116, false},
         };
     }
 
