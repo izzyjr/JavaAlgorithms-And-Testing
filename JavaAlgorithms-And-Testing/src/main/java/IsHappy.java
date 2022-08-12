@@ -4,22 +4,21 @@ public class IsHappy {
 
     public static boolean isHappy(int n) {
 
-        String num = Integer.toString(n);
-        int squared;
-        int sum = 0;
         HashSet<Integer> set = new HashSet<>();
         boolean flag = true;
+        int sum = 0;
 
-        while (flag || num.equals("1")) {
+        while (flag && n != 1) {
 
-            for (int i = 0; i < num.length(); i++) {
-                squared = Integer.parseInt(String.valueOf(num.charAt(i)));
-                squared *= squared;
-                sum += squared;
+            flag = set.add(n);
+
+            while (n > 0) {
+                int digit = n % 10;
+                sum += digit * digit;
+                n = n /10;
             }
 
-            flag = set.add(sum);
-            num = Integer.toString(sum);
+            n = sum;
         }
 
         return set.contains(1);
