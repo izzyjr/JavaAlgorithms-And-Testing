@@ -11,6 +11,7 @@ public class TestIsHappy {
                 {19, true},
                 {2, false},
                 {116, false},
+                {333, false},
         };
     }
 
