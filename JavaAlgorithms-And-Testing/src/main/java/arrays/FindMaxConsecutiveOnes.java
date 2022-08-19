@@ -12,15 +12,13 @@ public class FindMaxConsecutiveOnes {
             if (num == 1) {
                 count++;
             } else {
-                if (count > result) {
-                    result = count;
-                    count = 0;
-                }
+                count = 0;
             }
-        }
 
-        if (count > result) {
-            result = count;
+            if (count > result) {
+                result = count;
+
+            }
         }
 
         return result;
