@@ -10,7 +10,8 @@ public class TestFindMaxConsecutiveOnes {
     @DataProvider(name="inputOutput")
     private Object[][] getData() {
         return new Object[][]{
-                {new int[] {1, 0, 1, 1, 0, 1}, 2}
+                {new int[] {1, 0, 1, 1, 0, 1}, 2},
+                {new int[] {1, 1, 0, 1, 1, 1}, 3}
         };
     }
 
