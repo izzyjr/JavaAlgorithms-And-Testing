@@ -26,12 +26,6 @@ public class CountPoints {
             }
         }
 
-        for (List<Character> list : map.values()) {
-            if (list.size() >= 3) {
-                result++;
-            }
-        }
-
         return result;
     }
 }

@@ -10,7 +10,8 @@ public class TestCountPoints {
     @DataProvider(name="inputOutput")
     private Object[][] getData() {
         return new Object[][]{
-                {"B0B6G0R6R0R6G9", 1}
+                {"B0B6G0R6R0R6G9", 1},
+                {"G7G8G0", 0}
         };
     }
 
