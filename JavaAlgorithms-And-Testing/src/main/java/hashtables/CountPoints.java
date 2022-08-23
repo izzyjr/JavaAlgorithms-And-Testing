@@ -14,7 +14,7 @@ public class CountPoints {
         char color = 0;
 
         for (int i = 0; i < length; i++) {
-            if (i % 2 != 0) {
+            if (i % 2 == 0) {
                 color = rings.charAt(i);
             } else {
                 if (!map.containsKey(rings.charAt(i))) {

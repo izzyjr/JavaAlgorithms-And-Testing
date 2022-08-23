@@ -11,7 +11,8 @@ public class TestCountPoints {
     private Object[][] getData() {
         return new Object[][]{
                 {"B0B6G0R6R0R6G9", 1},
-                {"G7G8G0", 0}
+                {"G7G8G0", 0},
+                {"B0R0G0R9R0B0G0", 1}
         };
     }
 
