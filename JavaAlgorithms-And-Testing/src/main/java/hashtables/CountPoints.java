@@ -1,8 +1,7 @@
 package hashtables;
 
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
+import java.util.HashSet;
 import java.util.Map;
 
 public class CountPoints {
@@ -11,7 +10,7 @@ public class CountPoints {
 
         int result = 0;
         int length = rings.length();
-        Map<Character, ArrayList<Character>> map = new HashMap<>();
+        Map<Character, HashSet<Character>> map = new HashMap<>();
         char color = 0;
 
         for (int i = 0; i < length; i++) {
@@ -19,10 +18,17 @@ public class CountPoints {
                 color = rings.charAt(i);
             } else {
                 if (!map.containsKey(rings.charAt(i))) {
-                    map.put(rings.charAt(i), new ArrayList<>(List.of(color)));
+                    map.put(rings.charAt(i), new HashSet<>());
+                    map.get(rings.charAt(i)).add(color);
                 } else {
                     map.get(rings.charAt(i)).add(color);
                 }
+            }
+        }
+
+        for (HashSet<Character> set : map.values()) {
+            if (set.size() == 3) {
+                result++;
             }
         }
 
