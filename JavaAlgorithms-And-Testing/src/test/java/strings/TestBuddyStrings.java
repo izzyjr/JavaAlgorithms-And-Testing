@@ -13,6 +13,7 @@ public class TestBuddyStrings {
                 {"ab", "ba", true},
                 {"abcd", "cbad", true},
                 {"aa", "aa", true},
+                {"ab", "ab", false},
         };
     }
 
