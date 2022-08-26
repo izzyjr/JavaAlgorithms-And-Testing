@@ -12,6 +12,7 @@ public class TestBuddyStrings {
         return new Object[][]{
                 {"ab", "ba", true},
                 {"abcd", "cbad", true},
+                {"aa", "aa", true},
         };
     }
 
