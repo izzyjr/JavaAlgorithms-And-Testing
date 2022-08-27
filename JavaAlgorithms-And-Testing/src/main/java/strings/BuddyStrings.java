@@ -4,7 +4,7 @@ public class BuddyStrings {
 
     public static boolean buddyStrings(String s, String goal) {
 
-        boolean equals = s.equals(goal);
+        boolean equals = s.charAt(0) == s.charAt(1);
         int length = s.length();
         int count = 0;
 
@@ -14,6 +14,10 @@ public class BuddyStrings {
             }
         }
 
-        return count == 2 || equals;
+        if (count == 0) {
+            return equals;
+        }
+
+        return count == 2;
     }
 }
