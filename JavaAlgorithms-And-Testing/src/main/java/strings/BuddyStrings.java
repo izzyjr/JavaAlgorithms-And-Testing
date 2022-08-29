@@ -1,23 +1,28 @@
 package strings;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class BuddyStrings {
 
     public static boolean buddyStrings(String s, String goal) {
 
         int length = s.length();
-        int count = 0;
+        StringBuilder string = new StringBuilder(s);
+        Map<Integer, Character> map = new HashMap<>();
 
         for (int i = 0; i < length; i++) {
             if (s.charAt(i) != goal.charAt(i)) {
-                count++;
-            }
-            if (i != 0) {
-                if (s.charAt(i - 1) == s.charAt(i)) {
-                    count++;
-                }
+                map.put(i, goal.charAt(i));
             }
         }
 
-        return count > 0 && count <= 2;
+        System.out.println(map.size());
+
+        for (Map.Entry<Integer, Character> entry : map.entrySet()) {
+            string.setCharAt(entry.getKey(), entry.getValue());
+        }
+
+        return string.toString().equals(goal);
     }
 }
