@@ -6,6 +6,7 @@ public class BuddyStrings {
 
         int length = s.length();
         int count = 0;
+        int same = 0;
 
         for (int i = 0; i < length; i++) {
             if (s.charAt(i) != goal.charAt(i)) {
@@ -13,13 +14,19 @@ public class BuddyStrings {
             }
             if (i != 0) {
                 if (s.charAt(i - 1) == s.charAt(i)) {
-                    count++;
+                    same++;
                 }
             }
         }
 
-        System.out.println(count);
+        System.out.println("count: " + count);
+        System.out.println("same: " + same);
 
-        return count > 0 && count <= 2;
+        if (count == 2 && same == 0) {
+            return true;
+        } else if (count == 2 && same == length - 1) {
+            return true;
+        }
+        return same > count;
     }
 }
