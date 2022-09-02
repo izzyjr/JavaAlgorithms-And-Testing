@@ -9,7 +9,7 @@ public class BuddyStrings {
         int same = 0;
 
         for (int i = 0; i < length; i++) {
-            if (s.charAt(i) != goal.charAt(i)) {
+            if (s.charAt(i) != goal.charAt(i) && goal.contains(Character.toString(s.charAt(i)))) {
                 count++;
             }
             if (i != 0) {
