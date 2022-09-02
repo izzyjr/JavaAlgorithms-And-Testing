@@ -6,27 +6,19 @@ public class BuddyStrings {
 
         int length = s.length();
         int count = 0;
-        int same = 0;
 
-        for (int i = 0; i < length; i++) {
-            if (s.charAt(i) != goal.charAt(i) && goal.contains(Character.toString(s.charAt(i)))) {
-                count++;
-            }
-            if (i != 0) {
-                if (s.charAt(i - 1) == s.charAt(i)) {
-                    same++;
+        if (!s.equals(goal)) {
+            for (int i = 0; i < length; i++) {
+                if (s.charAt(i) != goal.charAt(i) && goal.contains(Character.toString(s.charAt(i)))) {
+                    count++;
                 }
             }
+        } else {
+
         }
 
         System.out.println("count: " + count);
-        System.out.println("same: " + same);
 
-        if (count == 2 && same == 0) {
-            return true;
-        } else if (count == 2 && same == length - 1) {
-            return true;
-        }
-        return same > count;
+        return count == 2;
     }
 }
