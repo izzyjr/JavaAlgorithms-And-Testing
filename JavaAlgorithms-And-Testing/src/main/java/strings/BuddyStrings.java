@@ -9,8 +9,14 @@ public class BuddyStrings {
 
         if (!s.equals(goal)) {
             for (int i = 0; i < length; i++) {
-                if (s.charAt(i) != goal.charAt(i) && goal.contains(Character.toString(s.charAt(i)))) {
-                    count++;
+                if (i != length - 1 && s.charAt(i) != s.charAt(i + 1)) {
+                    if (s.charAt(i) != goal.charAt(i) && goal.contains(Character.toString(s.charAt(i)))) {
+                        count++;
+                    }
+                } else if (i == length - 1) {
+                    if (s.charAt(i) != goal.charAt(i) && goal.contains(Character.toString(s.charAt(i)))) {
+                        count++;
+                    }
                 }
             }
         } else {
