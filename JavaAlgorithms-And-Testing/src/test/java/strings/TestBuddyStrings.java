@@ -17,7 +17,8 @@ public class TestBuddyStrings {
                 {"abcaa", "abcbb", false},
                 {"aaaaaaabc", "aaaaaaacb", true},
                 {"ab", "ca", false},
-                {"abab", "abab", true}
+                {"abab", "abab", true},
+                {"ab", "babbb", false}
         };
     }
 
