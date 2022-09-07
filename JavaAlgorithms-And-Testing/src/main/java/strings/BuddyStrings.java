@@ -7,6 +7,10 @@ public class BuddyStrings {
         int length = s.length();
         int count = 0;
 
+        if (length != goal.length()) {
+            return false;
+        }
+
         if (!s.equals(goal)) {
             for (int i = 0; i < length; i++) {
                 boolean contains = goal.contains(Character.toString(s.charAt(i)));
