@@ -6,6 +6,8 @@ public class BuddyStrings {
 
         int length = s.length();
         int count = 0;
+        int first = 0;
+        int second = 0;
 
         if (length != goal.length()) {
             return false;
@@ -13,19 +15,17 @@ public class BuddyStrings {
 
         if (!s.equals(goal)) {
             for (int i = 0; i < length; i++) {
-                boolean contains = goal.contains(Character.toString(s.charAt(i)));
-                if (i != length - 1 && s.charAt(i) != s.charAt(i + 1)) {
-                    if (s.charAt(i) != goal.charAt(i) && contains) {
-                        count++;
-                    }
-                } else if (i == length - 1) {
-                    if (s.charAt(i) != goal.charAt(i) && contains) {
-                        count++;
+                if (s.charAt(i) != goal.charAt(i)) {
+                    if (first == 0) {
+                        first = i;
+                    } else if (second == 0) {
+                        second = i;
+                    } else {
+                        return false;
                     }
                 }
             }
         } else {
-
             int[] counter = new int[26];
             for (int i = 0; i < s.length(); i++) {
                 counter[s.charAt(i) - 'a']++;
@@ -39,6 +39,6 @@ public class BuddyStrings {
             return false;
         }
 
-        return count == 2;
+        return s.charAt(first) == goal.charAt(second) && s.charAt(second) == goal.charAt(first);
     }
 }
