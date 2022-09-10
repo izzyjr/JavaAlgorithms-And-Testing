@@ -10,7 +10,8 @@ public class TestDistributeCandies {
     @DataProvider(name="inputOutput")
     private Object[][] getData() {
         return new Object[][]{
-                {new int[] {1, 1, 2, 2, 3, 3}, 3}
+                {new int[] {1, 1, 2, 2, 3, 3}, 3},
+                {new int[] {1, 1, 2, 3}, 2}
         };
     }
 
