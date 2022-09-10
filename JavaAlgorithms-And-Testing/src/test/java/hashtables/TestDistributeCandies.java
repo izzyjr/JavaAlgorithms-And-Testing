@@ -11,7 +11,8 @@ public class TestDistributeCandies {
     private Object[][] getData() {
         return new Object[][]{
                 {new int[] {1, 1, 2, 2, 3, 3}, 3},
-                {new int[] {1, 1, 2, 3}, 2}
+                {new int[] {1, 1, 2, 3}, 2},
+                {new int[] {1000, 1000, 2, 1, 2, 5, 3, 1}, 4}
         };
     }
 
