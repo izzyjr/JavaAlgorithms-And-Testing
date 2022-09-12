@@ -12,7 +12,8 @@ public class TestDistributeCandies {
         return new Object[][]{
                 {new int[] {1, 1, 2, 2, 3, 3}, 3},
                 {new int[] {1, 1, 2, 3}, 2},
-                {new int[] {1000, 1000, 2, 1, 2, 5, 3, 1}, 4}
+                {new int[] {1000, 1000, 2, 1, 2, 5, 3, 1}, 4},
+                {new int[] {7, 7, 7, 7}, 1}
         };
     }
 
