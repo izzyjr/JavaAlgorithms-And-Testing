@@ -14,7 +14,8 @@ public class TestFizzBuzz {
         return new Object[][] {
                 {3, Arrays.asList("1", "2", "Fizz")},
                 {5, Arrays.asList("1","2","Fizz","4","Buzz")},
-                {15, Arrays.asList("1","2","Fizz","4","Buzz","Fizz","7","8","Fizz","Buzz","11","Fizz","13","14","FizzBuzz")}
+                {15, Arrays.asList("1","2","Fizz","4","Buzz","Fizz","7","8","Fizz","Buzz","11","Fizz","13","14","FizzBuzz")},
+                {12, Arrays.asList("1","2","Fizz","4","Buzz","Fizz","7","8","Fizz","Buzz","11","Fizz")}
         };
     }
 
