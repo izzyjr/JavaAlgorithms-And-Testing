@@ -12,7 +12,8 @@ public class TestBuyAndSellStock {
         return new Object[][] {
                 {new int[] {7, 1, 5, 3, 6, 5}, 5},
                 {new int[] {7, 6, 4, 3, 1}, 0},
-                {new int[] {2, 4, 1}, 2}
+                {new int[] {2, 4, 1}, 2},
+                {new int[] {3,2,6,5,0,3}, 4}
         };
     }
 

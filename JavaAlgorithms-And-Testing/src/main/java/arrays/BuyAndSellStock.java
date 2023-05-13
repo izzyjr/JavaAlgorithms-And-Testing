@@ -5,18 +5,19 @@ public class BuyAndSellStock {
     public static int buyAndSellStock(int[] prices) {
 
         int maxProfit = 0;
+        int lowestPrice = prices[0];
+        int date = 0;
 
-        for (int i = 0; i < prices.length - 1; i++) {
-            if (i + 1 < prices.length) {
-                if (prices[i] > prices[i + 1]){
-                    i++;
-                }
+        for (int i = 1; i < prices.length; i++) {
+            if (prices[i] < lowestPrice && i != prices.length -1) {
+                lowestPrice = prices[i];
+                date = i;
             }
+        }
 
-            for (int j = i + 1; j < prices.length; j++) {
-                if (maxProfit < prices[j] - prices[i]) {
-                    maxProfit = prices[j] - prices[i];
-                }
+        for (int j = date; j < prices.length; j++) {
+            if (prices[j] - lowestPrice > maxProfit) {
+                maxProfit = prices[j] - lowestPrice;
             }
         }
 
