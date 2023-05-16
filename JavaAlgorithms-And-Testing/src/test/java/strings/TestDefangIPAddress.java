@@ -10,7 +10,8 @@ public class TestDefangIPAddress {
     @DataProvider(name="stringsAndResult")
     private Object[][] getData() {
         return new Object[][]{
-                {"255.100.50.0", "255[.]100[.]50[.]0"}
+                {"255.100.50.0", "255[.]100[.]50[.]0"},
+                {"1.1.1.1", "1[.]1[.]1[.]1"},
         };
     }
 
