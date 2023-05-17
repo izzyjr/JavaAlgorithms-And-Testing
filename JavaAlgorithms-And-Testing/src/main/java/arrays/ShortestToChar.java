@@ -1,7 +1,5 @@
 package arrays;
 
-import java.util.Arrays;
-
 public class ShortestToChar {
 
     public static int[] shortestToChar(String s, char c) {
