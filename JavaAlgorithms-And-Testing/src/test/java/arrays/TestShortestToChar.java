@@ -11,7 +11,8 @@ public class TestShortestToChar {
     private Object[][] getData() {
         return new Object[][]{
                 {"loveleetcode", 'e', new int[] {3, 2, 1, 0, 1, 0, 0, 1, 2, 2, 1, 0}},
-                {"aaab", 'b', new int[] {3, 2, 1, 0}}
+                {"aaab", 'b', new int[] {3, 2, 1, 0}},
+                {"racecar", 'r', new int[] {0, 1, 2, 3, 2, 1, 0}}
         };
     }
 
