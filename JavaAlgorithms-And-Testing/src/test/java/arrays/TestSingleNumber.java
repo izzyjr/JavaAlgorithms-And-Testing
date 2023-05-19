@@ -18,7 +18,7 @@ public class TestSingleNumber {
     }
 
     @Test(dataProvider = "inputOutput")
-    private void singleNumber(int[] nums, int expectedResult) {
+    private void testSingleNumber(int[] nums, int expectedResult) {
         assertEquals(SingleNumber.singleNumber(nums), expectedResult);
     }
 }
