@@ -12,7 +12,11 @@ public class TestLongestCommonPrefix {
         return new Object[][]{
                 {new String[] {"flower","flow","flight"}, "fl"},
                 {new String[] {"dog","racecar","car"}, ""},
-                {new String[] {"", "b"}, ""}
+                {new String[] {"", "b"}, ""},
+                {new String[] {"ab", "a"}, "a"},
+                {new String[] {"cir", "car"}, "c"},
+                {new String[] {"dog", "dose", "doddle"}, "do"},
+                {new String[] {"israel", "israel", "israel"}, "israel"},
         };
     }
 
