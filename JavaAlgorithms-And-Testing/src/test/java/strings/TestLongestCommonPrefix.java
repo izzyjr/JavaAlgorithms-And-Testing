@@ -11,7 +11,8 @@ public class TestLongestCommonPrefix {
     private Object[][] getData() {
         return new Object[][]{
                 {new String[] {"flower","flow","flight"}, "fl"},
-                {new String[] {"dog","racecar","car"}, ""}
+                {new String[] {"dog","racecar","car"}, ""},
+                {new String[] {"", "b"}, ""}
         };
     }
 
