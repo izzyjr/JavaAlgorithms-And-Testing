@@ -15,18 +15,13 @@ public class LongestCommonPrefix {
         }
 
         for (int i = 0; i < shortest; i++) {
-            int count = 0;
             character = strs[0].charAt(i);
             for (int j = 1; j < strs.length; j++) {
-                if (character == strs[j].charAt(i)) {
-                    count++;
-                } else {
+                if (character != strs[j].charAt(i)) {
                     return result.toString();
                 }
             }
-            if (count == strs.length - 1) {
-                result.append(character);
-            }
+            result.append(character);
         }
 
         return result.toString();

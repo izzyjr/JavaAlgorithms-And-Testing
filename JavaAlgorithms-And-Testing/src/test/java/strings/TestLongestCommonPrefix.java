@@ -17,6 +17,7 @@ public class TestLongestCommonPrefix {
                 {new String[] {"cir", "car"}, "c"},
                 {new String[] {"dog", "dose", "doddle"}, "do"},
                 {new String[] {"israel", "israel", "israel"}, "israel"},
+                {new String[] {"", "", ""}, ""}
         };
     }
 
