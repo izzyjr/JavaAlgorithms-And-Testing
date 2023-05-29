@@ -11,7 +11,7 @@ public class TestValidParentheses {
     private Object[][] getData() {
         return new Object[][] {
                 {"()[]{}", true},
-                {"())", true},
+                {"(())", true},
                 {"{]", false},
                 {"(({[]}))", true}
         };
