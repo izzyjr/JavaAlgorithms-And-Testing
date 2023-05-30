@@ -13,7 +13,8 @@ public class TestValidParentheses {
                 {"()[]{}", true},
                 {"(())", true},
                 {"{]", false},
-                {"(({[]}))", true}
+                {"(({[]}))", true},
+                {"[(){}[]]", true}
         };
     }
 

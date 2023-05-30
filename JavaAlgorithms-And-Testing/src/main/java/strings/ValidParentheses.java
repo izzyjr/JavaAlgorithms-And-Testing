@@ -1,5 +1,7 @@
 package strings;
 
+import java.util.Stack;
+
 public class ValidParentheses {
 
     public static Boolean validParentheses(String s) {
@@ -8,42 +10,28 @@ public class ValidParentheses {
             return false;
         }
 
-        String secondHalf = "";
-        int half = s.length() / 2;
+        Stack stack = new Stack();
 
         for (int i = 0; i < s.length(); i++) {
-            if (i + 1 < s.length()) {
-                if (i == half - 1) {
-                    if (s.charAt(i) == '(') {
-                        secondHalf += ')';
-                    } else if (s.charAt(i) == '[') {
-                        secondHalf += ']';
-                    } else if (s.charAt(i) == '{') {
-                        secondHalf += '}';
-                    }
-                } else {
-                    if (s.charAt(i) == '(' && s.charAt(i + 1) != ')') {
-                        secondHalf += ')';
-                    } else if (s.charAt(i) == '[' && s.charAt(i + 1) != ']') {
-                        secondHalf += ']';
-                    } else if (s.charAt(i) == '{' && s.charAt(i + 1) != '}') {
-                        secondHalf += '}';
-                    }
+            if (s.charAt(i) == '(' || s.charAt(i) == '{' || s.charAt(i) == '[') {
+                if (s.charAt(i) == '(') {
+                    stack.push(')');
+                } else if (s.charAt(i) == '[') {
+                    stack.push(']');
+                } else if (s.charAt(i) == '{') {
+                    stack.push('}');
                 }
-            }
-        }
-
-        System.out.println("second half: " + secondHalf);
-
-        if (secondHalf.length() != 0) {
-            for (int j = secondHalf.length() - 1; j > 0; j--) {
-                if (secondHalf.charAt(j) != s.charAt(half)) {
+            } else {
+                if (stack.isEmpty()) {
                     return false;
+                } else {
+                    if (!stack.pop().equals(s.charAt(i))) {
+                        return false;
+                    }
                 }
-                half++;
             }
         }
 
-        return true;
+        return stack.isEmpty();
     }
 }
