@@ -13,7 +13,8 @@ public class TestFindDisappearedNumbers {
     private Object[][] getData() {
         return new Object[][]{
                 {new int[] {4, 3, 2, 7, 8, 2, 3, 1}, List.of(5, 6)},
-                {new int[] {1, 1}, List.of(2)}
+                {new int[] {1, 1}, List.of(2)},
+                {new int[] {1, 1, 1}, List.of(2, 3)},
         };
     }
 
