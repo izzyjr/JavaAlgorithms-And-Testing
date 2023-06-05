@@ -30,8 +30,6 @@ public class FindRestaurant {
             }
         }
 
-        System.out.println(result);
-
         return result;
     }
 }
