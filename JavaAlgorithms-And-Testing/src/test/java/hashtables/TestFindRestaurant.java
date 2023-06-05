@@ -20,7 +20,7 @@ public class TestFindRestaurant {
                         List.of("Shogun")},
                 {new String[] {"happy","sad","good"},
                         new String[] {"sad","happy","good"},
-                        List.of("happy", "sad")},
+                        List.of("sad", "happy")},
         };
     }
 
