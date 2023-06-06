@@ -1,5 +1,7 @@
 package strings;
 
+import java.util.Arrays;
+
 public class CountSegments {
 
     public static int countSegments(String s) {
@@ -7,6 +9,10 @@ public class CountSegments {
         if (s.isEmpty()) {
             return 0;
         }
-        return s.split(" ").length;
+
+        String[] arr = s.split("\\s+");
+        System.out.println(Arrays.toString(arr));
+
+        return arr.length;
     }
 }

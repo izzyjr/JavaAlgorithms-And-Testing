@@ -14,7 +14,8 @@ public class TestCountSegments {
                 {"Hello", 1},
                 {"A segment is defined to be a contiguous sequence of non-space characters", 12},
                 {"", 0},
-                {", , , ,        a, eaefa", 6}
+                {", , , ,        a, eaefa", 6},
+                {"    foo    bar", 2},
         };
     }
 
