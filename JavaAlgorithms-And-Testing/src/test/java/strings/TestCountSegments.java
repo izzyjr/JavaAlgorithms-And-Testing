@@ -16,7 +16,8 @@ public class TestCountSegments {
                 {"", 0},
                 {", , , ,        a, eaefa", 6},
                 {"    foo    bar", 2},
-                {"                ", 0}
+                {"                ", 0},
+                {"a, b, c, d, e", 5}
         };
     }
 
