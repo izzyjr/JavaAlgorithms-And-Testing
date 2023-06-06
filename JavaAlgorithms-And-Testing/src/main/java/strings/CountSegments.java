@@ -10,7 +10,7 @@ public class CountSegments {
             return 0;
         }
 
-        String[] arr = s.split("\\s+");
+        String[] arr = s.trim().split("\\s+");
         System.out.println(Arrays.toString(arr));
 
         return arr.length;
