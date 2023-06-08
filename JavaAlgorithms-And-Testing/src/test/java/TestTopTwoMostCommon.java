@@ -8,7 +8,8 @@ public class TestTopTwoMostCommon {
     @DataProvider(name="inputOutput")
     private Object[][] getData() {
         return new Object[][]{
-                {new int[] {1, 2, 3, 4, 5, 3, 4}, new int[] {3, 4}},
+                {new int[] {1, 2, 3, 4, 5, 3, 4}, new int[] {4, 3}},
+                {new int[] {1, 2, 3, 4, 5, 3, 4, 4}, new int[] {4, 3}},
         };
     }
 

@@ -19,17 +19,17 @@ public class TopTwoMostCommon {
 
         System.out.println(map);
 
-        int count = 0;
+        int top = 0;
         for (Map.Entry<Integer, Integer> entry : map.entrySet()) {
-            if (count < entry.getValue()) {
-                count = entry.getValue();
+            if (top <= entry.getValue()) {
+                top = entry.getValue();
                 result[0] = entry.getKey();
             }
         }
 
         for (Map.Entry<Integer, Integer> entry : map.entrySet()) {
-            if (count <= entry.getValue() && entry.getKey() != result[0]) {
-                count = entry.getValue();
+            if (top < entry.getValue() && entry.getKey() != result[0]) {
+                top = entry.getValue();
                 result[1] = entry.getKey();
             }
         }
