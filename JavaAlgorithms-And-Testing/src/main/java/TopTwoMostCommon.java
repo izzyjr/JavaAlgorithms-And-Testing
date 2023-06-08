@@ -1,4 +1,3 @@
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -17,8 +16,6 @@ public class TopTwoMostCommon {
             }
         }
 
-        System.out.println(map);
-
         int top = 0;
         for (Map.Entry<Integer, Integer> entry : map.entrySet()) {
             if (top <= entry.getValue()) {
@@ -27,14 +24,13 @@ public class TopTwoMostCommon {
             }
         }
 
+        top = 0;
         for (Map.Entry<Integer, Integer> entry : map.entrySet()) {
             if (top < entry.getValue() && entry.getKey() != result[0]) {
                 top = entry.getValue();
                 result[1] = entry.getKey();
             }
         }
-
-        System.out.println(Arrays.toString(result));
 
         return result;
     }

@@ -10,6 +10,7 @@ public class TestTopTwoMostCommon {
         return new Object[][]{
                 {new int[] {1, 2, 3, 4, 5, 3, 4}, new int[] {4, 3}},
                 {new int[] {1, 2, 3, 4, 5, 3, 4, 4}, new int[] {4, 3}},
+                {new int[] {1, 2, 3, 4, 5, 3, 4, 4, 3}, new int[] {4, 3}}
         };
     }
 
