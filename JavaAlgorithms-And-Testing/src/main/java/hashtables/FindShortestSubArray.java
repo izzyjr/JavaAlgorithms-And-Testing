@@ -10,7 +10,7 @@ public class FindShortestSubArray {
     public static int findShortestSubArray(int[] nums) {
 
         Map<Integer, Integer> map = new HashMap<>();
-        int max = 0;
+        int max = 1;
 
         for (int num : nums) {
             if (map.containsKey(num)) {

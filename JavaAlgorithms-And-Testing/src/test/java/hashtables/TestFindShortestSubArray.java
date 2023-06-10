@@ -12,6 +12,8 @@ public class TestFindShortestSubArray {
         return new Object[][]{
                 {new int[] {1,2,2,3,1}, 2},
                 {new int[] {1,2,2,3,1,4,2}, 6},
+                {new int[] {2, 1}, 1},
+                {new int[] {3, 3, 4}, 2}
         };
     }
 
