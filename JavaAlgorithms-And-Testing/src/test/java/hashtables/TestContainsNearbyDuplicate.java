@@ -12,7 +12,8 @@ public class TestContainsNearbyDuplicate {
         return new Object[][]{
                 {new int[] {1, 2, 3, 1}, 3, true},
                 {new int[] {1, 0, 1, 1}, 1, true},
-                {new int[] {1, 2, 3, 1, 2, 3}, 2, false}
+                {new int[] {1, 2, 3, 1, 2, 3}, 2, false},
+                {new int[] {3, 2, 3, 1, 2, 3}, 5, true}
         };
     }
 
