@@ -1,24 +1,23 @@
 package arrays;
 
-import java.util.HashMap;
-import java.util.Map;
 import java.util.Stack;
+import java.util.TreeMap;
 
 public class ThirdMax {
 
     public static int thirdMax(int[] nums) {
 
-        Map<Integer, Integer> map = new HashMap<>();
+        TreeMap<Integer, Integer> tree = new TreeMap<>();
 
         for (int num : nums) {
-            if (!map.containsKey(num)) {
-                map.put(num, 1);
+            if (!tree.containsKey(num)) {
+                tree.put(num, 1);
             }
         }
 
         Stack<Integer> stack = new Stack<>();
 
-        for (int num : map.keySet()) {
+        for (int num : tree.keySet()) {
             stack.push(num);
         }
 
