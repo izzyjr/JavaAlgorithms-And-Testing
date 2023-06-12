@@ -13,6 +13,7 @@ public class TestThirdMax {
                 {new int[] {3, 2, 1}, 1},
                 {new int[] {1, 2}, 2},
                 {new int[] {2,2,3,1}, 1},
+                {new int[] {6, 8, 5, 2}, 5},
                 {new int[] {1, 2147483647, -2147483648}, -2147483648}
         };
     }

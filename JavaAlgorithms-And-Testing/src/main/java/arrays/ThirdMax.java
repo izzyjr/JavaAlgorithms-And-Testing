@@ -1,6 +1,5 @@
 package arrays;
 
-import java.util.Stack;
 import java.util.TreeMap;
 
 public class ThirdMax {
@@ -15,22 +14,19 @@ public class ThirdMax {
             }
         }
 
-        Stack<Integer> stack = new Stack<>();
+        int size = tree.size();
+        int count = 0;
 
-        for (int num : tree.keySet()) {
-            stack.push(num);
-        }
-
-        if (stack.size() < 3) {
-            return stack.pop();
-        } else {
-            int count = 1;
-            while (count != 3) {
-                stack.pop();
-                count++;
+        if (size >= 3) {
+            for (int num : tree.keySet()) {
+                if (size - count == 3) {
+                    return num;
+                } else {
+                    count++;
+                }
             }
         }
 
-        return stack.pop();
+        return tree.lastEntry().getKey();
     }
 }
