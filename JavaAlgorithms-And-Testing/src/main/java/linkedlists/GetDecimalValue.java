@@ -1,24 +1,15 @@
 package linkedlists;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class GetDecimalValue {
 
     public static int getDecimalValue(ListNode<Integer> head) {
 
-        List<Integer> binaries = new ArrayList<>();
+        int decimal = head.value;
 
-        while (head != null) {
-            binaries.add(head.value);
-            head = head.next;
-        }
-
-        int decimal = binaries.get(0);
-
-        for (int i = 1; i < binaries.size(); i++) {
+        while (head.next != null) {
             decimal *= 2;
-            decimal += binaries.get(i);
+            head = head.next;
+            decimal += head.value;
         }
 
         return decimal;
