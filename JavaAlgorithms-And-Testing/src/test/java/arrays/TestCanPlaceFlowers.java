@@ -13,7 +13,8 @@ public class TestCanPlaceFlowers {
                 {new int[] {1, 0, 0, 0, 1}, 1, true},
                 {new int[] {1, 0, 0, 0, 1}, 2, false},
                 {new int[] {1, 0, 0, 0, 0, 1}, 2, false},
-                {new int[] {1, 0, 0, 0, 0, 0, 1}, 2, true}
+                {new int[] {1, 0, 0, 0, 0, 0, 1}, 2, true},
+                {new int[] {0, 0, 1, 0, 1}, 1, true}
         };
     }
 

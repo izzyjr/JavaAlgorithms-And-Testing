@@ -4,7 +4,6 @@ public class CanPlaceFlowers {
 
     public static boolean canPlaceFlowers(int[] flowerbed, int n) {
 
-        int count = 0;
         for (int i = 0; i < flowerbed.length; i++) {
             int spaces = 0;
             while (flowerbed[i + spaces] < flowerbed.length) {
@@ -14,15 +13,19 @@ public class CanPlaceFlowers {
                     break;
                 }
                 if (spaces == 3) {
-                    count++;
+                    n--;
+                    spaces = 1;
                     if (i + spaces < flowerbed.length) {
                         i += spaces;
                     }
                     break;
                 }
             }
+            if (n == 0) {
+                return true;
+            }
         }
 
-        return count == n;
+        return n == 0;
     }
 }
