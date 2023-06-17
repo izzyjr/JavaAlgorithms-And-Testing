@@ -4,28 +4,34 @@ public class CanPlaceFlowers {
 
     public static boolean canPlaceFlowers(int[] flowerbed, int n) {
 
-        for (int i = 0; i < flowerbed.length; i++) {
-            int spaces = 0;
-            while (flowerbed[i + spaces] < flowerbed.length) {
-                if (flowerbed[i + spaces] == 0) {
-                    spaces++;
-                } else {
-                    break;
-                }
-                if (spaces == 3) {
-                    n--;
-                    spaces = 1;
-                    if (i + spaces < flowerbed.length) {
-                        i += spaces;
+        if (flowerbed[0] == 1) {
+            for (int i = 0; i < flowerbed.length; i++) {
+                if (i % 2 == 0 && flowerbed[i] == 0) {
+                    if (i + 1 < flowerbed.length) {
+                        if (flowerbed[i - 1] == 0 && flowerbed[i + 1] == 0) {
+                            n--;
+                        }
                     }
-                    break;
+                }
+                if (n == 0) {
+                    return true;
                 }
             }
-            if (n == 0) {
-                return true;
+        } else {
+            for (int i = 0; i < flowerbed.length; i++) {
+                if (i % 2 != 0 && flowerbed[i] == 0) {
+                    if (i + 1 < flowerbed.length) {
+                        if (flowerbed[i - 1] == 0 && flowerbed[i + 1] == 0) {
+                            n--;
+                        }
+                    }
+                }
+                if (n == 0) {
+                    return true;
+                }
             }
         }
 
-        return n == 0;
+        return false;
     }
 }
