@@ -42,5 +42,3 @@ public class CanPlaceFlowers {
         return map.get(1) - spaces >= n;
     }
 }
-
-
