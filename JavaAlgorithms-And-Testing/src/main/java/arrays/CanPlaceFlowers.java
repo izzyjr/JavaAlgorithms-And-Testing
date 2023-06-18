@@ -39,6 +39,10 @@ public class CanPlaceFlowers {
             }
         }
 
+        if (map.isEmpty()) {
+            return (flowerbed.length / 2) + 1 >= n;
+        }
+
         return map.get(1) - spaces >= n;
     }
 }
