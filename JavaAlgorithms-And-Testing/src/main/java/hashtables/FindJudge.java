@@ -7,23 +7,30 @@ public class FindJudge {
 
     public static int findJudge(int n, int[][] trust) {
 
-        Map<Integer, Map<Integer, Integer>> mostTrusted = new HashMap<>();
+        Map<Integer, Map<Integer, Integer>> trusted = new HashMap<>();
+        Map<Integer, Integer> trusters = new HashMap<>();
 
-        for (int[] trusted : trust) {
-            if (mostTrusted.containsKey(trusted[1])) {
-                mostTrusted.get(trusted[1]).put(trusted[0], 1);
+        for (int[] relationship : trust) {
+            if (trusted.containsKey(relationship[1])) {
+                trusted.get(relationship[1]).put(relationship[0], 1);
             } else {
-                mostTrusted.put(trusted[1], new HashMap<>());
-                mostTrusted.get(trusted[1]).put(trusted[0], 1);
+                trusted.put(relationship[1], new HashMap<>());
+                trusted.get(relationship[1]).put(relationship[0], 1);
             }
+            trusters.put(relationship[0], trusters.getOrDefault(relationship[0], 0) + 1);
         }
 
-        for (Map.Entry<Integer, Map<Integer, Integer>> entry : mostTrusted.entrySet()) {
+        int mostTrusted = 0;
+        for (Map.Entry<Integer, Map<Integer, Integer>> entry : trusted.entrySet()) {
             if (entry.getValue().size() == n - 1) {
-                return entry.getKey();
+                mostTrusted = entry.getKey();
             }
         }
 
-        return -1;
+        if (trusters.containsKey(mostTrusted)) {
+            return -1;
+        }
+
+        return mostTrusted;
     }
 }
