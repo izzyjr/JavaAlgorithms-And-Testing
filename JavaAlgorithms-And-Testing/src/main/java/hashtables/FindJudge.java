@@ -27,10 +27,10 @@ public class FindJudge {
             }
         }
 
-        if (trusters.containsKey(mostTrusted)) {
-            return -1;
+        if (mostTrusted == (n - 1) && !trusters.containsKey(mostTrusted)) {
+            return mostTrusted;
         }
 
-        return mostTrusted;
+        return -1;
     }
 }
