@@ -33,6 +33,10 @@ public class FindJudge {
             if (trusted.get(mostTrusted).size() == (n - 1) && !trusters.containsKey(mostTrusted)) {
                 return mostTrusted;
             }
+        } else {
+            if (n == 1) {
+                return n;
+            }
         }
 
         return -1;
