@@ -17,7 +17,9 @@ public class FindJudge {
                 trusted.put(relationship[1], new HashMap<>());
                 trusted.get(relationship[1]).put(relationship[0], 1);
             }
-            trusters.put(relationship[0], trusters.getOrDefault(relationship[0], 0) + 1);
+            if (!trusters.containsKey(relationship[0])) {
+                trusters.put(relationship[0], 1);
+            }
         }
 
         int mostTrusted = 0;
@@ -27,8 +29,10 @@ public class FindJudge {
             }
         }
 
-        if (mostTrusted == (n - 1) && !trusters.containsKey(mostTrusted)) {
-            return mostTrusted;
+        if (mostTrusted != 0) {
+            if (trusted.get(mostTrusted).size() == (n - 1) && !trusters.containsKey(mostTrusted)) {
+                return mostTrusted;
+            }
         }
 
         return -1;
