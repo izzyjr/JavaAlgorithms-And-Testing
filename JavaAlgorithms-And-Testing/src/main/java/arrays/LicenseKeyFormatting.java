@@ -20,11 +20,15 @@ public class LicenseKeyFormatting {
 
         if (firstPart != 0) {
             result.append(format, 0, k - 1);
-            result.append('-');
         }
 
+        int counter = 0;
         for (int j = firstPart; j < format.length(); j++) {
-
+            if (counter % k == 0) {
+                result.append('-');
+            }
+            result.append(Character.toUpperCase(format.charAt(j)));
+            counter++;
         }
 
         return result.toString();
