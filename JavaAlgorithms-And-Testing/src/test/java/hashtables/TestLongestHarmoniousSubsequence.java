@@ -12,7 +12,8 @@ public class TestLongestHarmoniousSubsequence {
         return new Object[][]{
                 {new int[] {1, 3, 2, 2, 5, 2, 3, 7}, 5},
                 {new int[] {1, 2, 3, 4}, 2},
-                {new int[] {1, 1, 1, 1}, 0}
+                {new int[] {1, 1, 1, 1}, 0},
+                {new int[] {1, 2, 1, 3, 0, 0, 2, 2, 1, 3, 3}, 6}
         };
     }
 
