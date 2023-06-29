@@ -1,9 +1,6 @@
 package hashtables;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class LongestHarmoniousSubsequence {
 
@@ -21,15 +18,14 @@ public class LongestHarmoniousSubsequence {
             }
         }
 
+        Collections.sort(keys);
         int longest = 0;
-        for (Map.Entry<Integer, Integer> entry : map.entrySet()) {
-            for (Integer key : keys) {
-                int sum = 0;
-                if (entry.getKey() - key == 1) {
-                    sum = entry.getValue() + map.get(key);
-                    if (longest < sum) {
-                        longest = sum;
-                    }
+
+        for (int i = 0; i + 1 < keys.size(); i++) {
+            if (keys.get(i + 1) - keys.get(i) == 1) {
+                int length = map.get(keys.get(i + 1)) + map.get(keys.get(i));
+                if (longest < length) {
+                    longest = length;
                 }
             }
         }
