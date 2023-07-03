@@ -11,7 +11,9 @@ public class TestRemoveElement {
     private Object[][] getData() {
         return new Object[][]{
                 {new int[] {3, 2, 2, 3}, 3, 2},
-                {new int[] {0, 1, 2, 2, 3, 0, 4, 2}, 2, 5}
+                {new int[] {0, 1, 2, 2, 3, 0, 4, 2}, 2, 5},
+                {new int[] {2}, 3, 1},
+                {new int[] {}, 0, 0},
         };
     }
 

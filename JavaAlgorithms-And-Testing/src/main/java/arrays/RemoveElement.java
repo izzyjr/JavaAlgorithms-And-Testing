@@ -21,6 +21,10 @@ public class RemoveElement {
             }
         }
 
-        return nums.length - (count / nums.length);
+        if (count != 0) {
+            count /= nums.length;
+        }
+
+        return nums.length - count;
     }
 }
