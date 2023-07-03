@@ -8,7 +8,7 @@ public class RemoveElement {
 
         for (int i = 0; i < nums.length; i++) {
             for (int j = 0; j < nums.length; j++) {
-                if (nums[j] == val) {
+                if (nums[j] == val & i == nums.length - 1) {
                     count++;
                 }
                 if (j + 1 < nums.length) {
@@ -19,10 +19,6 @@ public class RemoveElement {
                     }
                 }
             }
-        }
-
-        if (count != 0) {
-            count /= nums.length;
         }
 
         return nums.length - count;

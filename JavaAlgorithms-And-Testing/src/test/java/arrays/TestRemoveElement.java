@@ -14,6 +14,7 @@ public class TestRemoveElement {
                 {new int[] {0, 1, 2, 2, 3, 0, 4, 2}, 2, 5},
                 {new int[] {2}, 3, 1},
                 {new int[] {}, 0, 0},
+                {new int[] {0, 4, 4, 0, 4, 4, 4, 0, 2}, 4, 4}
         };
     }
 
