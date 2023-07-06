@@ -22,9 +22,7 @@ public class LargeGroupPositions {
                 }
             }
             if (count >= 3) {
-                result.add(new ArrayList<>());
-                result.get(listCount).add(start);
-                result.get(listCount).add(end);
+                result.add(List.of(start, end));
                 listCount++;
             }
             start = end;
