@@ -7,15 +7,15 @@ public class MostCommonWord {
 
     public static String mostCommonWord(String paragraph, String[] banned) {
 
-        String[] words = paragraph.split("[^a-zA-Z]+");
+        String[] words = paragraph.toLowerCase().split("[^a-zA-Z]+");
         Map<String, Integer> wordCount = new HashMap<>();
 
         for (String word : words) {
-            wordCount.put(word.toLowerCase(), wordCount.getOrDefault(word.toLowerCase(), 0) + 1);
+            wordCount.put(word, wordCount.getOrDefault(word, 0) + 1);
         }
 
         for (String ban : banned) {
-            wordCount.remove(ban.toLowerCase());
+            wordCount.remove(ban);
         }
 
         String result = "";
