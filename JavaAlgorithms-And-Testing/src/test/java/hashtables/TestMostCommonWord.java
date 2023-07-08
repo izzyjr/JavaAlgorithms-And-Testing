@@ -11,7 +11,8 @@ public class TestMostCommonWord {
     private Object[][] getData() {
         return new Object[][]{
                 {"Bob hit a ball, the hit BALL flew far after it was hit.", new String[] {"hit"}, "ball"},
-                {"a.", new String[] {}, "a"}
+                {"a.", new String[] {}, "a"},
+                {"Bob!", new String[] {"hit"}, "bob"}
         };
     }
 

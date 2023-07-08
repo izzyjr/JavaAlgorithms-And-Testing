@@ -7,7 +7,7 @@ public class MostCommonWord {
 
     public static String mostCommonWord(String paragraph, String[] banned) {
 
-        String[] words = paragraph.split("[\\s,.]+");
+        String[] words = paragraph.split("[^a-zA-Z]+");
         Map<String, Integer> wordCount = new HashMap<>();
 
         for (String word : words) {
