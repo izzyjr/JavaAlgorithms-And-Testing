@@ -18,8 +18,6 @@ public class MostCommonWord {
             wordCount.remove(ban.toLowerCase());
         }
 
-        System.out.println(wordCount);
-
         String result = "";
         int count = 0;
 
