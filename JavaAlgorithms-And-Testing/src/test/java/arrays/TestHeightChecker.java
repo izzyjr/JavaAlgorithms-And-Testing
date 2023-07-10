@@ -12,7 +12,8 @@ public class TestHeightChecker {
         return new Object[][]{
                 {new int[] {1, 1, 4, 2, 1, 3}, 3},
                 {new int[] {5, 1, 2, 3, 4}, 5},
-                {new int[] {1, 2, 3, 4, 5}, 0}
+                {new int[] {1, 2, 3, 4, 5}, 0},
+                {new int[] {1, 10, 97, 98, 99}, 0}
         };
     }
 
