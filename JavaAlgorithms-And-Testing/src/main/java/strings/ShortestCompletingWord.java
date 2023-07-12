@@ -10,7 +10,7 @@ public class ShortestCompletingWord {
         String[] letters = licensePlate.replaceAll("[^a-zA-Z]", "").toLowerCase().split("");
         Map<Character, Integer> wordMap = new HashMap<>();
         int wordLength = Integer.MAX_VALUE;
-        String answer = "";
+        String shortestWord = "";
 
         for (String word : words) {
             for (int i = 0; i < words.length; i++) {
@@ -26,11 +26,12 @@ public class ShortestCompletingWord {
             if (count == letters.length) {
                 if (wordLength > word.length()) {
                     wordLength = word.length();
-                    answer = word;
+                    shortestWord = word;
                 }
             }
+            wordMap.clear();
         }
 
-        return answer;
+        return shortestWord;
     }
 }
