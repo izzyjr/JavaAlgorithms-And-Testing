@@ -13,22 +13,31 @@ public class ShortestCompletingWord {
         String shortestWord = "";
 
         for (String word : words) {
-            for (int i = 0; i < words.length; i++) {
+
+            int length = word.length();
+            for (int i = 0; i < length; i++) {
                 wordMap.put(word.charAt(i), wordMap.getOrDefault(word.charAt(i), 0) + 1);
             }
+
             int count = 0;
-            for (String s : letters) {
-                char letter = s.charAt(0);
-                if (wordMap.containsKey(letter)) {
+            for (String letter : letters) {
+                if (wordMap.containsKey(letter.charAt(0))) {
+                    if (wordMap.get(letter.charAt(0)) == 1) {
+                        wordMap.remove(letter.charAt(0));
+                    } else {
+                        wordMap.put(letter.charAt(0), wordMap.get(letter.charAt(0)) - 1);
+                    }
                     count++;
                 }
             }
+
             if (count == letters.length) {
-                if (wordLength > word.length()) {
-                    wordLength = word.length();
+                if (wordLength > length) {
+                    wordLength = length;
                     shortestWord = word;
                 }
             }
+
             wordMap.clear();
         }
 
