@@ -17,7 +17,7 @@ public class TestFairCandyShop {
     }
 
     @Test(dataProvider = "inputOutput")
-    private void testFindJudge(int n, int[][] trust, int expectedResult) {
-        assertEquals(FindJudge.findJudge(n, trust), expectedResult);
+    private void testFairCandyShop(int[] aliceSizes, int[] bobSizes, int[] expectedResult) {
+        assertEquals(FairCandyShop.fairCandySwap(aliceSizes, bobSizes), expectedResult);
     }
 }
