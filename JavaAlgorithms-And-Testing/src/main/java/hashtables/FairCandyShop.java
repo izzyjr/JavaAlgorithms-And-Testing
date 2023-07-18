@@ -12,18 +12,23 @@ public class FairCandyShop {
         int aliceCandies = 0;
         int bobCandies = 0;
 
-        int i, j;
-        for (i = 0, j = 0; i < aliceSizes.length && j < bobSizes.length; i++, j++) {
-            aliceCandies += aliceSizes[i];
-            bobCandies += bobSizes[j];
-            aliceMap.put(aliceSizes[i], aliceMap.getOrDefault(aliceSizes[i], 0) + 1);
-            bobMap.put(bobSizes[j], bobMap.getOrDefault(bobSizes[j], 0) + 1);
+        for (int aliceSize : aliceSizes) {
+            aliceCandies += aliceSize;
+            aliceMap.put(aliceSize, aliceMap.getOrDefault(aliceSize, 0) + 1);
         }
+
+        for (int bobSize : bobSizes) {
+            bobCandies += bobSize;
+            bobMap.put(bobSize, bobMap.getOrDefault(bobSize, 0) + 1);
+        }
+
+        int fairAmount = (aliceCandies + bobCandies) / 2;
 
         System.out.println(aliceCandies);
         System.out.println(aliceMap);
         System.out.println(bobCandies);
         System.out.println(bobMap);
+        System.out.println(fairAmount);
 
 
         int[] answer = new int[2];
