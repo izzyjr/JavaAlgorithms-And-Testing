@@ -20,13 +20,13 @@ public class FairCandyShop {
         int fairAmount = (aliceCandies + bobCandies) / 2;
         int[] answer = new int[2];
 
-        for (int i = 0; i < aliceSizes.length; i++) {
-            for (int j = i + 1; j < bobSizes.length; j++) {
-                int aliceTotal = (aliceCandies + bobSizes[j]) - aliceSizes[i];
-                int bobTotal = (bobCandies + aliceSizes[i]) - bobSizes[j];
+        for (int aliceSize : aliceSizes) {
+            for (int bobSize : bobSizes) {
+                int aliceTotal = (aliceCandies + bobSize) - aliceSize;
+                int bobTotal = (bobCandies + aliceSize) - bobSize;
                 if (aliceTotal == fairAmount && bobTotal == fairAmount) {
-                    answer[0] = aliceSizes[i];
-                    answer[1] = bobSizes[j];
+                    answer[0] = aliceSize;
+                    answer[1] = bobSize;
                     break;
                 }
             }
