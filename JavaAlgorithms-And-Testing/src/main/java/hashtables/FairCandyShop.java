@@ -1,7 +1,5 @@
 package hashtables;
 
-import java.util.Arrays;
-
 public class FairCandyShop {
 
     public static int[] fairCandySwap(int[] aliceSizes, int[] bobSizes) {
