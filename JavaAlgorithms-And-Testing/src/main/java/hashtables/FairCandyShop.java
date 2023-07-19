@@ -27,12 +27,10 @@ public class FairCandyShop {
                 if (aliceTotal == fairAmount && bobTotal == fairAmount) {
                     answer[0] = aliceSize;
                     answer[1] = bobSize;
-                    break;
+                    return answer;
                 }
             }
         }
-
-        System.out.println(Arrays.toString(answer));
 
         return answer;
     }
