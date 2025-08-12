@@ -6,7 +6,7 @@ import static org.testng.AssertJUnit.assertEquals;
 public class TestGetEvenDigitSum {
 
     @DataProvider(name="inputOutput")
-    private Object[][] getDate() {
+    private Object[][] getData() {
         return new Object[][]{
                 {123456789, 20},
                 {252, 4},
