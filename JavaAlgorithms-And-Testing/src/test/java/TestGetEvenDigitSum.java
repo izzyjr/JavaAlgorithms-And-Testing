@@ -1,7 +1,7 @@
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
-import static org.testng.AssertJUnit.assertEquals;
+import static org.testng.Assert.assertEquals;
 
 public class TestGetEvenDigitSum {
 
