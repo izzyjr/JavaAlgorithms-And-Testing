@@ -6,7 +6,7 @@ import static org.testng.Assert.assertEquals;
 public class TestNumberToWords {
 
     @DataProvider(name = "inputOutput")
-    public Object[][] getData() {
+    private Object[][] getData() {
         return new Object[][]{
                 {123, "One, Two, Three."},
                 {1010, "One, Zero, One, Zero."},
@@ -18,7 +18,7 @@ public class TestNumberToWords {
     }
 
     @Test(dataProvider = "inputOutput")
-    public void testNumberToWords(int number, String expectedResult) {
+    private void testNumberToWords(int number, String expectedResult) {
         assertEquals(NumberToWords.numberToWords(number), expectedResult);
     }
 }
